@@ -4,13 +4,24 @@ import { auth } from "@/auth";
 
 export async function GET() {
     try {
+        console.log('Fetching members from database...');
+        if (!process.env.DATABASE_URL) {
+            console.error('DATABASE_URL is missing in environment variables!');
+            return NextResponse.json({ error: 'Database configuration missing' }, { status: 500 });
+        }
+
         const members = await prisma.member.findMany({
             orderBy: { order: 'asc' }
         });
+
+        console.log(`Found ${members.length} members.`);
         return NextResponse.json(members);
     } catch (error) {
         console.error('Members GET error:', error);
-        return NextResponse.json({ error: 'Failed to fetch members' }, { status: 500 });
+        return NextResponse.json({
+            error: 'Failed to fetch members',
+            details: (error as any).message
+        }, { status: 500 });
     }
 }
 

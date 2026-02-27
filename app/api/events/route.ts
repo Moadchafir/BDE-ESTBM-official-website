@@ -4,10 +4,15 @@ import { auth } from "@/auth";
 
 export async function GET() {
     try {
-        const events = await prisma.event.findMany();
+        console.log('Fetching events from database...');
+        if (!process.env.DATABASE_URL) {
+            console.error('DATABASE_URL is missing in environment variables!');
+            return NextResponse.json({ error: 'Database configuration missing' }, { status: 500 });
+        }
 
-        // Sorting logic can be done in the query if desired, 
-        // but for now keeping it simple to match previous behavior
+        const events = await prisma.event.findMany();
+        console.log(`Found ${events.length} events.`);
+
         const sortedEvents = [...events].sort((a: any, b: any) => {
             const dateA = new Date(a.date.split(' ').reverse().join(' '));
             const dateB = new Date(b.date.split(' ').reverse().join(' '));
@@ -17,7 +22,10 @@ export async function GET() {
         return NextResponse.json(sortedEvents);
     } catch (error) {
         console.error('Events GET error:', error);
-        return NextResponse.json({ error: "Failed to fetch events" }, { status: 500 });
+        return NextResponse.json({
+            error: "Failed to fetch events",
+            details: (error as any).message
+        }, { status: 500 });
     }
 }
 
