@@ -11,6 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Bureau des Étudiants",
   description: "Votre voix, notre mission.",
+  icons: [{ rel: 'icon', url: '/logo.png' }],
 };
 
 export default function RootLayout({
@@ -25,12 +26,13 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         {/* Animated background */}
-        <div className="fixed inset-0 -z-10">
-
-          {/* Floating gradient orbs — light, pastel tones */}
-          <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-3xl orb-float-1" />
-          <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-cyan-400/10 rounded-full blur-3xl orb-float-2" />
-          <div className="absolute top-[40%] left-[30%] w-[400px] h-[400px] bg-blue-300/8 rounded-full blur-3xl orb-float-3" />
+        <div className="fixed inset-0 -z-10 overflow-hidden">
+          {/* Floating gradient orbs — vibrant tones */}
+          <div className="absolute top-[-15%] right-[-10%] w-[800px] h-[800px] bg-blue-500/20 rounded-full blur-[100px] orb-float-1" />
+          <div className="absolute bottom-[-15%] left-[-10%] w-[700px] h-[700px] bg-cyan-400/20 rounded-full blur-[100px] orb-float-2" />
+          <div className="absolute top-[30%] left-[-5%] w-[600px] h-[600px] bg-indigo-400/15 rounded-full blur-[100px] orb-float-3" />
+          <div className="absolute top-[60%] right-[10%] w-[500px] h-[500px] bg-violet-400/15 rounded-full blur-[100px] orb-float-1" />
+          <div className="absolute bottom-[20%] right-[30%] w-[450px] h-[450px] bg-blue-300/12 rounded-full blur-[100px] orb-float-2" />
         </div>
 
         <SessionProvider>

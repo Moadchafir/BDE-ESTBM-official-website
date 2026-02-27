@@ -19,7 +19,7 @@ export function Footer() {
     };
 
     return (
-        <footer className="w-full mt-24 px-4 pb-10 relative z-10">
+        <footer className="w-full px-4 pb-10 relative z-10">
             <div className="container mx-auto">
                 <div className="w-full rounded-3xl border border-slate-200/80 bg-white shadow-sm p-10 md:p-14">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
@@ -58,6 +58,7 @@ export function Footer() {
                             <ul className="space-y-3">
                                 {[
                                     { label: "Accueil", href: "#hero" },
+                                    { label: "À Propos", href: "#about" },
                                     { label: "Membres", href: "#members" },
                                     { label: "Événements", href: "#events" },
                                     { label: "Contact", href: "#contact" },
@@ -88,7 +89,7 @@ export function Footer() {
                                 </li>
                                 <li className="flex items-center gap-3 text-slate-500 text-sm">
                                     <Phone className="w-4 h-4 text-blue-500 shrink-0" />
-                                    <span>+212 766 530080</span>
+                                    <span>Rabab Joumar | +212 766 530080</span>
                                 </li>
                             </ul>
                         </div>

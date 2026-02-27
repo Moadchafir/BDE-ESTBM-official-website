@@ -1,0 +1,123 @@
+{
+  "members": [
+    {
+      "id": 1,
+      "name": "Rabab Joumar",
+      "role": "Présidente",
+      "src": "https://res.cloudinary.com/dwmc6zurs/image/upload/v1772140761/46cea5f8-83ff-48d6-bcbf-25e37b45da31.png",
+      "socials": {
+        "ig": "#",
+        "li": "#"
+      },
+      "order": "1",
+      "bio": "Porte la vision du BDE, coordonne les pôles et représente les étudiants auprès de l’administration et des partenaires."
+    },
+    {
+      "id": 2,
+      "name": "Fatima Ezzahra Errazaki",
+      "role": "Ressouces Humaines",
+      "src": "https://res.cloudinary.com/dwmc6zurs/image/upload/v1772140631/7aaf632f-7096-4e6c-ae5b-5360b470c80f.png",
+      "socials": {
+        "ig": "#",
+        "li": "#"
+      },
+      "order": "2",
+      "bio": "Veille au bien-être de l’équipe, à la gestion des membres et au renforcement de la cohésion."
+    },
+    {
+      "id": 4,
+      "name": "Khalid daaif",
+      "role": "Résaux sociaux",
+      "src": "https://res.cloudinary.com/dwmc6zurs/image/upload/v1772142459/WhatsApp_Image_2026-02-26_at_21.46.28_1_qtnwrs.jpg",
+      "socials": {
+        "ig": "#",
+        "li": "#"
+      },
+      "order": "6",
+      "bio": "Développe la présence en ligne du BDE et valorise ses activités à travers des stratégies de contenu engageantes."
+    },
+    {
+      "id": 5,
+      "name": "Youssef elmouden",
+      "role": "Finance",
+      "src": "https://res.cloudinary.com/dwmc6zurs/image/upload/v1772142460/WhatsApp_Image_2026-02-26_at_21.46.28_vxbfp7.jpg",
+      "socials": {
+        "ig": "#",
+        "li": "#"
+      },
+      "order": "4",
+      "bio": "Gère le budget, assure le suivi des dépenses et garantit une gestion financière transparente et responsable."
+    },
+    {
+      "id": 6,
+      "name": "Ismahane Ouahmani",
+      "role": "Secrétaire",
+      "src": "https://res.cloudinary.com/dwmc6zurs/image/upload/v1772140601/4083f20e-e817-412b-833f-ed8a5584da6e.png",
+      "socials": {
+        "ig": "#",
+        "li": "#"
+      },
+      "order": "3",
+      "bio": "Assure le suivi administratif, la gestion documentaire et la coordination interne du bureau."
+    },
+    {
+      "src": "https://res.cloudinary.com/dwmc6zurs/image/upload/v1772140710/b68c2958-addc-41b4-840b-ef7a4d57dba1.png",
+      "name": "Moad Chafir",
+      "role": "Photographie, Design & Dévelopement",
+      "id": 7,
+      "order": "4",
+      "bio": "Direction artistique, photographie et développement du site officiel du BDE.",
+      "socials": {
+        "ig": "https://www.instagram.com/moad.in.motion/",
+        "li": "https://www.linkedin.com/in/moadchafir/"
+      }
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "title": "Escapade à Marrakech : L’expérience qui nous a réunis",
+      "date": "Jan 2026",
+      "location": "Marrakech",
+      "type": "Voyage",
+      "image": "https://res.cloudinary.com/dwmc6zurs/image/upload/v1772146896/WhatsApp_Image_2026-02-26_at_22.57.39_qiw6jw.jpg,https://res.cloudinary.com/dwmc6zurs/image/upload/v1772146836/WhatsApp_Image_2026-02-26_at_22.57.41_i3yjle.jpg,https://res.cloudinary.com/dwmc6zurs/image/upload/v1772146830/WhatsApp_Image_2026-02-26_at_22.57.40_cgcwag.jpg",
+      "description": "Notre escale à Marrakech a marqué un moment charnière dans notre mandat : une parenthèse à la fois culturelle, humaine et organisationnelle qui a permis de lancer l’année sur une dynamique forte.\nEntre la découverte du patrimoine de la ville ocre, les temps d’échange en groupe et les activités collectives, ce voyage a été pensé comme un véritable levier de cohésion et d’intégration.\n\nSur le plan organisationnel, cette sortie a mobilisé une coordination complète : planification des déplacements, gestion des effectifs, encadrement sur le terrain et respect des exigences de sécurité. Chaque détail a été anticipé afin de garantir une expérience fluide, structurée et enrichissante pour l’ensemble des participants.\n\nAu-delà de l’aspect logistique, ce séjour à Marrakech a surtout permis de renforcer les liens entre étudiants, de créer des souvenirs communs et de consolider l’esprit d’équipe qui constitue aujourd’hui la force de notre communauté."
+    },
+    {
+      "id": 2,
+      "title": "Forum 2026 : Porter la voix de l’ESTBM",
+      "date": "Fev 2026",
+      "location": "Salle omnisport de Béni-Mellal",
+      "type": "Représentation",
+      "image": "https://res.cloudinary.com/dwmc6zurs/image/upload/v1772146214/WhatsApp_Image_2026-02-26_at_22.49.30_sgvomr.jpg,https://res.cloudinary.com/dwmc6zurs/image/upload/v1772146239/WhatsApp_Image_2026-02-26_at_22.49.30_1_gqfzjg.jpg",
+      "description": "Notre équipe a représenté l’École Supérieure de Technologie Beni Mellal au Forum Regional de l'Etudiant avec pour mission d’aller à la rencontre des lycéens et de porter l’image de notre établissement. Nous avons présenté les différentes filières, partagé notre expérience académique et associative, et échangé avec de nombreux futurs étudiants en pleine réflexion sur leur orientation.\n\nAu-delà de l’aspect informatif, cette participation a été marquée par des discussions sincères, des questionnements concrets et un accompagnement basé sur l’écoute et le vécu. Chaque échange a été l’occasion d’apporter des réponses claires, de rassurer et d’aider à donner du sens aux choix d’avenir.\n\nCette expérience a renforcé notre sens des responsabilités, nos compétences en communication et notre rôle actif dans la valorisation et le rayonnement de l’ESTBM."
+    },
+    {
+      "id": 3,
+      "title": "Aventure au cœur du Moyen Atlas : Khénifra 2025",
+      "date": "Avr 2025",
+      "location": "Parc National de Khénifra",
+      "type": "Voyage",
+      "image": "https://images.unsplash.com/photo-1540575861501-7ad0606b7ad3?auto=format&fit=crop&q=80&w=800",
+      "description": "Notre première grande sortie en tant qu’équipe a eu lieu au Parc National de Khénifra, une immersion sauvage au cœur du Moyen Atlas. Ce voyage a été conçu pour lancer l’année sur des bases solides et renforcer la cohésion de notre équipe à travers la découverte de la nature et des paysages majestueux de la région.\n\nSur le plan logistique, chaque détail a été pensé : organisation des déplacements, encadrement des participants et gestion de la sécurité, afin que l’expérience soit à la fois fluide et sécurisée.\n\nAu-delà de l’organisation, cette aventure a permis de créer des souvenirs communs, de rapprocher les membres de la communauté et de poser les fondations d’un esprit d’équipe fort et durable, essentiel à la dynamique du BDE."
+    },
+    {
+      "image": "https://res.cloudinary.com/dwmc6zurs/image/upload/v1772149160/Screenshot_2026-02-26_233520_vwu8sh.png,https://res.cloudinary.com/dwmc6zurs/image/upload/v1772149192/Screenshot_2026-02-26_233708_csn6wg.png,https://res.cloudinary.com/dwmc6zurs/image/upload/v1772149180/Screenshot_2026-02-26_233617_niyb1q.png,https://res.cloudinary.com/dwmc6zurs/image/upload/v1772149180/Screenshot_2026-02-26_233444_spuywa.png",
+      "title": "Intégration 2025-2026 : Poser les bases d’une année d’excellence",
+      "date": "Oct 2025",
+      "location": "Amphi Princip. - Campus EST",
+      "type": "Activité",
+      "description": "L’Intégration de l’EST Beni Mellal a marqué bien plus qu’un simple accueil : elle a posé les bases d’une année dynamique et fédératrice pour les étudiants. Organisée par le BDE, cette journée a combiné prestige institutionnel et énergie étudiante, offrant à chacun une expérience mémorable.\n\nNous avons mis en place une plateforme d’échange entre les leaders de l’école — dont le VP de l’Université, le Directeur de l’ESTBM et des représentants de l’ANAPEC — et la communauté étudiante, afin de guider, inspirer et connecter tous les participants.\n\nDerrière chaque moment, notre équipe a piloté l’événement dans ses moindres détails : la communication et la présentation officielle, la conception de l’identité visuelle et la captation photographique, ainsi que la coordination et l’accueil des étudiants. Chaque action visait à transformer une vision en une expérience concrète, structurée et engageante.\n\nCette intégration a renforcé l’esprit d’équipe, la cohésion et le sentiment d’appartenance à l’ESTBM, tout en démontrant la capacité du BDE à gérer des projets ambitieux, alliant branding, logistique et management de plateforme.",
+      "id": 4
+    },
+    {
+      "description": "Notre équipe a représenté l’École Supérieure de Technologie Beni Mellal au Forum International de l’Étudiant avec pour mission d’aller à la rencontre des lycéens et de porter l’image de notre établissement. Nous avons présenté les différentes filières, partagé notre expérience académique et associative, et échangé avec de nombreux futurs étudiants en pleine réflexion sur leur orientation.\n\nAu-delà de l’aspect informatif, cette participation a été marquée par des discussions sincères, des questionnements concrets et un accompagnement basé sur l’écoute et le vécu. Chaque échange a été l’occasion d’apporter des réponses claires, de rassurer et d’aider à donner du sens aux choix d’avenir.\n\nCette expérience a renforcé notre sens des responsabilités, nos compétences en communication et notre rôle actif dans la valorisation et le rayonnement de l’ESTBM.",
+      "title": "Forum Étudiant 2025 : Inspirer, Informer, Accompagner",
+      "location": "Salle omnisport de Béni-Mellal",
+      "type": "Représentation",
+      "date": "Avr 2025",
+      "image": "https://res.cloudinary.com/dwmc6zurs/image/upload/v1772155829/e6f18039-c125-4e90-8647-41e8fecaf373.png,https://res.cloudinary.com/dwmc6zurs/image/upload/v1772155655/WhatsApp_Image_2026-02-27_at_01.26.12_uupifm.jpg",
+      "id": 5
+    }
+  ]
+}
