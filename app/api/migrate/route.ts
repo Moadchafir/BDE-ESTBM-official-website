@@ -57,6 +57,9 @@ export async function GET() {
         for (const recruit of data.recruit || []) {
             await prisma.recruit.create({
                 data: {
+                    fullName: recruit.fullName || "Ancien Candidat",
+                    email: recruit.email || "inconnu@estbm.ac.ma",
+                    phoneNumber: recruit.phoneNumber || "0000000000",
                     role: recruit.role,
                     motivation: recruit.motivation,
                     capability: recruit.capability,

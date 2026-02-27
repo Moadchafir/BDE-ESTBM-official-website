@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState, useEffect } from "react";
-import { CheckCircle2, Loader2, ClipboardList, MessageSquare, Calendar, ExternalLink, User, X } from "lucide-react";
+import { CheckCircle2, Loader2, ClipboardList, MessageSquare, Calendar, ExternalLink, User, X, Zap } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { Button } from "../ui/button";
 
@@ -18,6 +18,9 @@ export function HeroSection() {
     const [isSubmittingRecruit, setIsSubmittingRecruit] = useState(false);
     const [isRecruitSuccess, setIsRecruitSuccess] = useState(false);
     const [recruitFormData, setRecruitFormData] = useState({
+        fullName: "",
+        email: "",
+        phoneNumber: "",
         role: "",
         motivation: "",
         capability: "",
@@ -59,7 +62,15 @@ export function HeroSection() {
             });
             if (res.ok) {
                 setIsRecruitSuccess(true);
-                setRecruitFormData({ role: "", motivation: "", capability: "", cv: "" });
+                setRecruitFormData({
+                    fullName: "",
+                    email: "",
+                    phoneNumber: "",
+                    role: "",
+                    motivation: "",
+                    capability: "",
+                    cv: ""
+                });
             }
         } catch (error) {
             console.error("Recruitment submission error:", error);
@@ -145,13 +156,24 @@ export function HeroSection() {
                                                                     <User className="w-6 h-6" />
                                                                 </div>
                                                                 <div>
-                                                                    <span className="text-[10px] font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full uppercase tracking-wider mb-1 inline-block">
-                                                                        {req.role}
-                                                                    </span>
-                                                                    <h4 className="text-sm text-slate-400 flex items-center gap-1.5">
-                                                                        <Calendar className="w-3.5 h-3.5" />
-                                                                        Reçu le {new Date(req.createdAt).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
-                                                                    </h4>
+                                                                    <h5 className="text-sm font-bold text-black mb-0.5">{req.fullName}</h5>
+                                                                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                                                                        <span className="text-[10px] font-bold text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                                                                            {req.role}
+                                                                        </span>
+                                                                        <span className="text-[10px] font-medium text-slate-400 flex items-center gap-1">
+                                                                            <MessageSquare className="w-3 h-3" />
+                                                                            {req.email}
+                                                                        </span>
+                                                                        <span className="text-[10px] font-medium text-slate-400 flex items-center gap-1">
+                                                                            <Zap className="w-3 h-3" />
+                                                                            {req.phoneNumber}
+                                                                        </span>
+                                                                        <span className="text-[10px] font-medium text-slate-400 flex items-center gap-1">
+                                                                            <Calendar className="w-3 h-3" />
+                                                                            {new Date(req.createdAt).toLocaleDateString('fr-FR')}
+                                                                        </span>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                             {req.cv && (
@@ -195,24 +217,64 @@ export function HeroSection() {
                                             </div>
                                         ) : (
                                             <form onSubmit={handleRecruitSubmit} className="grid gap-6">
-                                                <div className="flex flex-col gap-2">
-                                                    <Label htmlFor="role" className="text-slate-700 font-semibold">Rôle Souhaité</Label>
-                                                    <select
-                                                        id="role"
-                                                        value={recruitFormData.role}
-                                                        onChange={handleRecruitChange}
-                                                        className="w-full h-12 px-4 py-2 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 text-black transition-all"
-                                                        required
-                                                    >
-                                                        <option value="" disabled>Sélectionnez un département</option>
-                                                        <option value="comm">Communication & Logistics</option>
-                                                        <option value="hr">HR</option>
-                                                        <option value="design">Design</option>
-                                                        <option value="social">SocialMedia & Content Creation</option>
-                                                        <option value="secretary">Secretary</option>
-                                                        <option value="finance">Finance & Sponsorship</option>
-                                                    </select>
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                    <div className="flex flex-col gap-2">
+                                                        <Label htmlFor="fullName" className="text-slate-700 font-semibold">Nom Complet</Label>
+                                                        <Input
+                                                            id="fullName"
+                                                            value={recruitFormData.fullName}
+                                                            onChange={handleRecruitChange}
+                                                            placeholder="Votre nom et prénom"
+                                                            className="h-12 bg-slate-50 border-slate-200 text-black rounded-xl px-4 focus:ring-2 focus:ring-blue-500/20 transition-all font-light"
+                                                            required
+                                                        />
+                                                    </div>
+                                                    <div className="flex flex-col gap-2">
+                                                        <Label htmlFor="email" className="text-slate-700 font-semibold">Email</Label>
+                                                        <Input
+                                                            id="email"
+                                                            type="email"
+                                                            value={recruitFormData.email}
+                                                            onChange={handleRecruitChange}
+                                                            placeholder="votre@email.com"
+                                                            className="h-12 bg-slate-50 border-slate-200 text-black rounded-xl px-4 focus:ring-2 focus:ring-blue-500/20 transition-all font-light"
+                                                            required
+                                                        />
+                                                    </div>
                                                 </div>
+
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                    <div className="flex flex-col gap-2">
+                                                        <Label htmlFor="phoneNumber" className="text-slate-700 font-semibold">Téléphone</Label>
+                                                        <Input
+                                                            id="phoneNumber"
+                                                            value={recruitFormData.phoneNumber}
+                                                            onChange={handleRecruitChange}
+                                                            placeholder="+212 ..."
+                                                            className="h-12 bg-slate-50 border-slate-200 text-black rounded-xl px-4 focus:ring-2 focus:ring-blue-500/20 transition-all font-light"
+                                                            required
+                                                        />
+                                                    </div>
+                                                    <div className="flex flex-col gap-2">
+                                                        <Label htmlFor="role" className="text-slate-700 font-semibold">Rôle Souhaité</Label>
+                                                        <select
+                                                            id="role"
+                                                            value={recruitFormData.role}
+                                                            onChange={handleRecruitChange}
+                                                            className="w-full h-12 px-4 py-2 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 text-black transition-all"
+                                                            required
+                                                        >
+                                                            <option value="" disabled>Sélectionnez un département</option>
+                                                            <option value="comm">Communication & Logistics</option>
+                                                            <option value="hr">HR</option>
+                                                            <option value="design">Design</option>
+                                                            <option value="social">SocialMedia & Content Creation</option>
+                                                            <option value="secretary">Secretary</option>
+                                                            <option value="finance">Finance & Sponsorship</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
                                                 <div className="flex flex-col gap-2">
                                                     <Label htmlFor="motivation" className="text-slate-700 font-semibold">Pourquoi nous rejoindre ?</Label>
                                                     <Textarea

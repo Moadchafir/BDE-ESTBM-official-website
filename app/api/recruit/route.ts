@@ -23,10 +23,13 @@ export async function GET() {
 export async function POST(req: Request) {
     try {
         const body = await req.json();
-        const { role, motivation, capability, cv } = body;
+        const { fullName, email, phoneNumber, role, motivation, capability, cv } = body;
 
         const recruit = await prisma.recruit.create({
             data: {
+                fullName,
+                email,
+                phoneNumber,
                 role,
                 motivation,
                 capability,

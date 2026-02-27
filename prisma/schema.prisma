@@ -31,6 +31,9 @@ model Event {
 
 model Recruit {
   id          String   @id @default(cuid())
+  fullName    String
+  email       String
+  phoneNumber String
   role        String
   motivation  String   @db.Text
   capability  String   @db.Text
