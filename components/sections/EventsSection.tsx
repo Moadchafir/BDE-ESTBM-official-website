@@ -87,10 +87,8 @@ export function EventsSection() {
 
     const handleDelete = async (id: number) => {
         if (!confirm("Voulez-vous vraiment supprimer cet événement ?")) return;
-        const res = await fetch("/api/events", {
+        const res = await fetch(`/api/events?id=${id}`, {
             method: "DELETE",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ id }),
         });
         if (res.ok) {
             fetchEvents();

@@ -44,9 +44,11 @@ export function GenericModalForm({ type, initialData, onSuccess }: GenericModalF
         e.preventDefault();
 
         const endpoint = type === "Member" ? "/api/members" : "/api/events";
+        const isEdit = !!initialData?.id;
+
         try {
             const res = await fetch(endpoint, {
-                method: "POST",
+                method: isEdit ? "PATCH" : "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
             });

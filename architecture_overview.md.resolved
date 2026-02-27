@@ -1,0 +1,79 @@
+# Architecture & Technical Overview
+
+Ce projet est une application web moderne construite avec **Next.js 15**, conçue pour être performante, dynamique et facilement administrable. Voici comment le système est structuré et comment tout s'emboîte.
+
+## 🏗️ Pile Technologique (Tech Stack)
+
+| Composant | Technologie | Rôle |
+| :--- | :--- | :--- |
+| **Framework** | Next.js (App Router) | Structure globale, SSR (Server Side Rendering) et API. |
+| **Styling** | Tailwind CSS | Système de design atomique pour un UI premium et réactif. |
+| **Animations** | Framer Motion | Micro-interactions fluides et entrées de sections dynamiques. |
+| **Auth** | Auth.js (v5) | Authentification sécurisée des administrateurs via Credentials. |
+| **Base de Données**| JSON local ([db.json](file:///c:/Users/lenovo/gemini/antigravity/playground/fractal-eclipse/lib/db.json)) | Stockage léger et rapide, idéal pour une gestion de contenu agile. |
+| **Icônes** | Lucide React | Système d'icônes vectorielles cohérent. |
+
+---
+
+## 📂 Structure du Projet
+
+```mermaid
+graph TD
+    A[Root] --> B[app/]
+    A --> C[components/]
+    A --> D[lib/]
+    A --> E[public/]
+    
+    B --> B1[api/]
+    B --> B2[layout.tsx]
+    B --> B3[page.tsx]
+    
+    B1 --> B1a[auth/]
+    B1 --> B1b[events/]
+    B1 --> B1c[members/]
+    B1 --> B1d[recruit/]
+    B1 --> B1e[contact/]
+    
+    C --> C1[sections/]
+    C --> C2[ui/]
+    C --> C3[GenericModalForm.tsx]
+    
+    D --> D1[db.json]
+    D --> D2[db-utils.ts]
+```
+
+---
+
+## ⚙️ Comment ça marche ? (Data Flow)
+
+### 1. Stockage de Données
+Plutôt qu'une base de données lourde (SQL), nous utilisons un fichier [db.json](file:///c:/Users/lenovo/gemini/antigravity/playground/fractal-eclipse/lib/db.json) dans `/lib`. 
+- **db-utils.ts** fournit des fonctions asynchrones `readDb()` et `writeDb()` pour manipuler ce fichier de manière sécurisée.
+
+### 2. Couche API (Backend)
+Chaque fonctionnalité a sa propre route API dans `app/api/` :
+- **GET** : Récupère les données (Membres, Événements, Demandes).
+- **POST/DELETE** : Modifie les données (réservé aux admins via un check `auth()`).
+
+### 3. Interface Utilisateur (Frontend)
+Le site est composé de **Sections autonomes** :
+- **HeroSection** : Le point d'entrée, gère aussi les formulaires de recrutement.
+- **AboutSection** : Présentation visuelle des statistiques.
+- **Members/EventsSection** : Affichent les données dynamiquement en fetchant les APIs respectives.
+- **GenericModalForm** : Un composant réutilisable qui génère des formulaires de modification (CRUD) dynamiquement selon le type de données.
+
+---
+
+## 🔒 Authentification & Admin
+
+Nous utilisons **Auth.js** pour sécuriser l'accès.
+- **Admin Mode** : Lorsqu'un utilisateur est connecté (`session.user.role === 'admin'`), l'interface s'adapte.
+- **Transformation UI** : Les boutons classiques (ex: "Nous Rejoindre") se transforment en outils d'administration (ex: "Demandes") grâce à des conditions React simples mais puissantes.
+
+---
+
+## ✨ Design "Subrosa"
+Le design suit une esthétique "Glassmorphism" avec :
+- Des cartes translucides (`glass-card`).
+- Des dégradés de bleus dynamiques (`gradient-subrosa`).
+- Un espacement généreux et une typographie claire pour un rendu premium et institutionnel.

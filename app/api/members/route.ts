@@ -1,56 +1,112 @@
-import { NextResponse } from "next/server";
-import { readDb, writeDb } from "@/lib/db-utils";
+import { NextResponse } from 'next/server';
+import prisma from "@/lib/prisma";
 import { auth } from "@/auth";
 
 export async function GET() {
-    const db = await readDb();
-    return NextResponse.json(db.members);
+    try {
+        const members = await prisma.member.findMany({
+            orderBy: { order: 'asc' }
+        });
+        return NextResponse.json(members);
+    } catch (error) {
+        console.error('Members GET error:', error);
+        return NextResponse.json({ error: 'Failed to fetch members' }, { status: 500 });
+    }
 }
 
 export async function POST(req: Request) {
-    const session = await auth();
-    if ((session?.user as any)?.role !== "admin") {
-        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
-    const data = await req.json();
-    const db = await readDb();
-
-    // Normalize flat ig/li into nested socials object
-    const { ig, li, ...rest } = data;
-    const memberData = {
-        ...rest,
-        socials: {
-            ig: ig || rest.socials?.ig || "#",
-            li: li || rest.socials?.li || "#",
-        },
-    };
-
-    if (memberData.id) {
-        // Edit existing
-        const index = db.members.findIndex((m: any) => m.id === memberData.id);
-        if (index !== -1) {
-            db.members[index] = { ...db.members[index], ...memberData };
+    try {
+        const session = await auth();
+        if ((session?.user as any)?.role !== "admin") {
+            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
-    } else {
-        // Add new
-        const newId = Math.max(0, ...db.members.map((m: any) => m.id)) + 1;
-        db.members.push({ ...memberData, id: newId });
-    }
 
-    await writeDb(db);
-    return NextResponse.json({ success: true });
+        const body = await req.json();
+        const { name, role, src, socials, order, bio } = body;
+
+        const member = await prisma.member.create({
+            data: {
+                name,
+                role,
+                src,
+                ig: socials?.ig || null,
+                li: socials?.li || null,
+                order: order.toString(),
+                bio
+            }
+        });
+
+        return NextResponse.json(member);
+    } catch (error) {
+        console.error('Members POST error:', error);
+        return NextResponse.json({ error: 'Failed to create member' }, { status: 500 });
+    }
+}
+
+export async function PATCH(req: Request) {
+    try {
+        const session = await auth();
+        if ((session?.user as any)?.role !== "admin") {
+            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+        }
+
+        const body = await req.json();
+        const { id, name, role, src, socials, order, bio } = body;
+
+        if (!id) {
+            return NextResponse.json({ error: "Member ID required" }, { status: 400 });
+        }
+
+        const member = await prisma.member.update({
+            where: { id: parseInt(id) },
+            data: {
+                name,
+                role,
+                src,
+                ig: socials?.ig || body.ig || null,
+                li: socials?.li || body.li || null,
+                order: order?.toString(),
+                bio
+            }
+        });
+
+        return NextResponse.json(member);
+    } catch (error) {
+        console.error('Members PATCH error:', error);
+        return NextResponse.json({ error: 'Failed to update member' }, { status: 500 });
+    }
 }
 
 export async function DELETE(req: Request) {
-    const session = await auth();
-    if ((session?.user as any)?.role !== "admin") {
-        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
+    try {
+        const session = await auth();
+        if ((session?.user as any)?.role !== "admin") {
+            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+        }
 
-    const { id } = await req.json();
-    const db = await readDb();
-    db.members = db.members.filter((m: any) => m.id !== id);
-    await writeDb(db);
-    return NextResponse.json({ success: true });
+        const { searchParams } = new URL(req.url);
+        let id = searchParams.get('id');
+
+        if (!id) {
+            try {
+                const body = await req.json();
+                id = body.id;
+            } catch (e) {
+                // No body or invalid body
+            }
+        }
+
+        if (!id) {
+            return NextResponse.json({ error: "Member ID required" }, { status: 400 });
+        }
+
+        await prisma.member.delete({
+            where: { id: parseInt(id.toString()) }
+        });
+
+        return NextResponse.json({ success: true });
+    } catch (error) {
+        console.error('Members DELETE error:', error);
+        return NextResponse.json({ error: 'Failed to delete member' }, { status: 500 });
+    }
 }

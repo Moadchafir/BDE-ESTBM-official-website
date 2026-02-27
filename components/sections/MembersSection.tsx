@@ -27,10 +27,8 @@ export function MembersSection() {
 
     const handleDelete = async (id: number) => {
         if (!confirm("Voulez-vous vraiment supprimer ce membre ?")) return;
-        const res = await fetch("/api/members", {
+        const res = await fetch(`/api/members?id=${id}`, {
             method: "DELETE",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ id }),
         });
         if (res.ok) {
             fetchMembers();

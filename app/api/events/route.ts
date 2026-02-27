@@ -1,46 +1,117 @@
 import { NextResponse } from "next/server";
-import { readDb, writeDb } from "@/lib/db-utils";
+import prisma from "@/lib/prisma";
 import { auth } from "@/auth";
 
 export async function GET() {
-    const db = await readDb();
-    return NextResponse.json(db.events);
+    try {
+        const events = await prisma.event.findMany();
+
+        // Sorting logic can be done in the query if desired, 
+        // but for now keeping it simple to match previous behavior
+        const sortedEvents = [...events].sort((a: any, b: any) => {
+            const dateA = new Date(a.date.split(' ').reverse().join(' '));
+            const dateB = new Date(b.date.split(' ').reverse().join(' '));
+            return dateB.getTime() - dateA.getTime();
+        });
+
+        return NextResponse.json(sortedEvents);
+    } catch (error) {
+        console.error('Events GET error:', error);
+        return NextResponse.json({ error: "Failed to fetch events" }, { status: 500 });
+    }
 }
 
 export async function POST(req: Request) {
-    const session = await auth();
-    if ((session?.user as any)?.role !== "admin") {
-        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
-    const data = await req.json();
-    const db = await readDb();
-
-    if (data.id) {
-        // Edit existing
-        const index = db.events.findIndex((e: any) => e.id === data.id);
-        if (index !== -1) {
-            db.events[index] = { ...db.events[index], ...data };
+    try {
+        const session = await auth();
+        if ((session?.user as any)?.role !== "admin") {
+            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
-    } else {
-        // Add new
-        const newId = Math.max(0, ...db.events.map((e: any) => e.id)) + 1;
-        db.events.push({ ...data, id: newId });
-    }
 
-    await writeDb(db);
-    return NextResponse.json({ success: true });
+        const body = await req.json();
+        const { title, date, location, type, image, description } = body;
+
+        const event = await prisma.event.create({
+            data: {
+                title,
+                date,
+                location,
+                type,
+                image,
+                description
+            }
+        });
+
+        return NextResponse.json(event);
+    } catch (error) {
+        console.error('Events POST error:', error);
+        return NextResponse.json({ error: "Failed to create event" }, { status: 500 });
+    }
+}
+
+export async function PATCH(req: Request) {
+    try {
+        const session = await auth();
+        if ((session?.user as any)?.role !== "admin") {
+            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+        }
+
+        const body = await req.json();
+        const { id, title, date, location, type, image, description } = body;
+
+        if (!id) {
+            return NextResponse.json({ error: "Event ID required" }, { status: 400 });
+        }
+
+        const event = await prisma.event.update({
+            where: { id: parseInt(id) },
+            data: {
+                title,
+                date,
+                location,
+                type,
+                image,
+                description
+            }
+        });
+
+        return NextResponse.json(event);
+    } catch (error) {
+        console.error('Events PATCH error:', error);
+        return NextResponse.json({ error: "Failed to update event" }, { status: 500 });
+    }
 }
 
 export async function DELETE(req: Request) {
-    const session = await auth();
-    if ((session?.user as any)?.role !== "admin") {
-        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
+    try {
+        const session = await auth();
+        if ((session?.user as any)?.role !== "admin") {
+            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+        }
 
-    const { id } = await req.json();
-    const db = await readDb();
-    db.events = db.events.filter((e: any) => e.id !== id);
-    await writeDb(db);
-    return NextResponse.json({ success: true });
+        const { searchParams } = new URL(req.url);
+        let id = searchParams.get("id");
+
+        if (!id) {
+            try {
+                const body = await req.json();
+                id = body.id;
+            } catch (e) {
+                // No body or invalid body
+            }
+        }
+
+        if (!id) {
+            return NextResponse.json({ error: "Event ID required" }, { status: 400 });
+        }
+
+        await prisma.event.delete({
+            where: { id: parseInt(id.toString()) }
+        });
+
+        return NextResponse.json({ success: true });
+    } catch (error) {
+        console.error('Events DELETE error:', error);
+        return NextResponse.json({ error: "Failed to delete event" }, { status: 500 });
+    }
 }
