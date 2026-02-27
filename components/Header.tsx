@@ -1,10 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { Textarea } from "@/components/ui/textarea";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { useState, useEffect } from "react";
 
 export function Header() {
@@ -25,6 +21,8 @@ export function Header() {
         }
     };
 
+    if (!mounted) return null;
+
     return (
         <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled
             ? "border-b border-slate-200/80 bg-white/80 backdrop-blur-md shadow-sm"
@@ -32,7 +30,7 @@ export function Header() {
             }`}>
             <div className="container mx-auto flex h-16 items-center justify-between px-4">
                 {/* Logo */}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 cursor-pointer" onClick={() => scrollToSection("hero")}>
                     <Image src="/logo.png" alt="Logo" width={36} height={36} className="object-contain" />
                     <span className="text-lg font-semibold tracking-tight text-black">Bureau des Étudiants</span>
                 </div>
@@ -46,9 +44,9 @@ export function Header() {
                     <button onClick={() => scrollToSection("contact")} className="text-xs font-bold text-slate-500 hover:text-black uppercase tracking-widest transition-all duration-200">Contact</button>
                 </nav>
 
-                {/* Right - Join Us */}
-                <div className="flex items-center md:min-w-[150px] justify-end">
-                    {/* Button moved to Hero Section */}
+                {/* Right - Admin Actions / Join Us (Buttons moved to Hero) */}
+                <div className="flex items-center gap-4 md:min-w-[150px] justify-end whitespace-nowrap">
+                    {/* Admin actions are now integrated into the Hero Section buttons */}
                 </div>
             </div>
         </header>

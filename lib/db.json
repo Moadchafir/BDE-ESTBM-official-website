@@ -6,8 +6,8 @@
       "role": "Présidente",
       "src": "https://res.cloudinary.com/dwmc6zurs/image/upload/v1772140761/46cea5f8-83ff-48d6-bcbf-25e37b45da31.png",
       "socials": {
-        "ig": "#",
-        "li": "#"
+        "ig": "https://www.instagram.com/rabab_nrf/",
+        "li": "https://www.linkedin.com/in/rabab-joumar-b89795370/"
       },
       "order": "1",
       "bio": "Porte la vision du BDE, coordonne les pôles et représente les étudiants auprès de l’administration et des partenaires."
@@ -18,8 +18,8 @@
       "role": "Ressouces Humaines",
       "src": "https://res.cloudinary.com/dwmc6zurs/image/upload/v1772140631/7aaf632f-7096-4e6c-ae5b-5360b470c80f.png",
       "socials": {
-        "ig": "#",
-        "li": "#"
+        "ig": "https://www.instagram.com/rzk_nrf.37/",
+        "li": "https://www.linkedin.com/in/fatima-ezzahra-errazzaki-a24145373/"
       },
       "order": "2",
       "bio": "Veille au bien-être de l’équipe, à la gestion des membres et au renforcement de la cohésion."
@@ -43,7 +43,7 @@
       "src": "https://res.cloudinary.com/dwmc6zurs/image/upload/v1772142460/WhatsApp_Image_2026-02-26_at_21.46.28_vxbfp7.jpg",
       "socials": {
         "ig": "#",
-        "li": "#"
+        "li": "https://www.linkedin.com/in/youssef-lm-44a2453b1/"
       },
       "order": "4",
       "bio": "Gère le budget, assure le suivi des dépenses et garantit une gestion financière transparente et responsable."
@@ -118,6 +118,36 @@
       "date": "Avr 2025",
       "image": "https://res.cloudinary.com/dwmc6zurs/image/upload/v1772155829/e6f18039-c125-4e90-8647-41e8fecaf373.png,https://res.cloudinary.com/dwmc6zurs/image/upload/v1772155655/WhatsApp_Image_2026-02-27_at_01.26.12_uupifm.jpg",
       "id": 5
+    },
+    {
+      "description": "En collaboration avec le Club Yanafous ESTBM, le Bureau des Étudiants a pris part à une action caritative au profit des enfants de l’Association Bayt Bahia. Cette visite a été marquée par des moments de partage, de jeux et de soutien, apportant joie et réconfort aux enfants.\n\nAu-delà de l’activité, cette initiative reflète les valeurs de solidarité, d’engagement social et d’esprit de famille qui animent la communauté de l’EST Beni Mellal. Un grand merci aux étudiants mobilisés pour leur générosité et leur implication.",
+      "title": "Solidarité en action : Visite à l’Association Bayt Bahia",
+      "date": "Jan 2026",
+      "location": "Bayt Bahia, Béni-Mellal",
+      "type": "Activité",
+      "image": "https://res.cloudinary.com/dwmc6zurs/image/upload/v1772200981/db35dd78-bca2-435c-9db0-522376039984.png,https://res.cloudinary.com/dwmc6zurs/image/upload/v1772201034/aa586c23-09a7-4ad5-934a-c6adde48c85c.png,https://res.cloudinary.com/dwmc6zurs/image/upload/v1772201137/Screenshot_2026-02-27_140257_xtaby1.png",
+      "id": 6
+    }
+  ],
+  "recruit": [
+    {
+      "id": 1772203671134,
+      "role": "comm",
+      "motivation": "dsdsd",
+      "capability": "dsdsd",
+      "cv": "",
+      "createdAt": "2026-02-27T14:47:51.134Z"
+    }
+  ],
+  "contact": [
+    {
+      "id": 1772204719854,
+      "firstName": "moad",
+      "lastName": "chafir",
+      "email": "moadchafir@outlook.com",
+      "subject": "CHI SUJET",
+      "message": "CHI MEsage",
+      "createdAt": "2026-02-27T15:05:19.854Z"
     }
   ]
 }

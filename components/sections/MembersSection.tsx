@@ -38,7 +38,7 @@ export function MembersSection() {
     };
 
     return (
-        <section id="members" className="w-full py-20 px-4 relative z-10 scroll-mt-0">
+        <section id="members" className="w-full pt-20 pb-20 px-4 relative">
             <div className="container mx-auto">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black">Nos Membres</h2>
