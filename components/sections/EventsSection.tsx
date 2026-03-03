@@ -100,9 +100,9 @@ export function EventsSection() {
     return (
         <section id="events" className="w-full py-10 md:py-24 px-4 relative z-10 overflow-hidden">
             <div className="container mx-auto">
-                <div className="text-center mb-6 md:mb-10">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-black uppercase">Nos Événements Passés</h2>
-                    <p className="text-slate-500 text-sm md:text-lg max-w-2xl mx-auto uppercase tracking-widest font-bold">Revivez les moments forts de notre vie associative.</p>
+                <div className="text-center mb-6 md:mb-16">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-black capitalize md:normal-case">Nos événements passés</h2>
+                    <p className="text-slate-500 text-sm md:text-lg md:text-slate-600 md:mt-4 max-w-2xl mx-auto uppercase tracking-widest font-bold md:normal-case md:tracking-normal md:font-normal">Revivez les moments forts de notre vie associative.</p>
                     <div className="flex justify-center gap-4 mt-6">
                         {isAdmin && <GenericModalForm type="Event" onSuccess={fetchEvents} />}
                         <Button
@@ -164,10 +164,10 @@ export function EventsSection() {
                                 }}
                                 className={`
                                 flex-none group snap-start glass-card rounded-xl overflow-hidden cursor-pointer hover:-translate-y-1 transition-all duration-300 hover:border-blue-200 relative
-                                ${events.length >= 3 ? "w-[55%] md:w-[calc(40%-24px)]" : "w-[55%] md:w-full"}
+                                ${events.length >= 3 ? "w-[55%] md:w-[calc(33.333%-16px)]" : "w-[55%] md:w-full"}
                             `}
                             >
-                                <div className="h-48 w-full overflow-hidden relative">
+                                <div className="h-48 md:h-64 w-full overflow-hidden relative">
                                     <img src={(event.image || "").split(',')[0].trim()} alt={event.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                                     <div className="absolute top-4 left-4 flex gap-2">
                                         <span className="text-xs font-bold text-blue-600 bg-white px-3 py-1 rounded-full shadow-sm">
@@ -189,20 +189,20 @@ export function EventsSection() {
                                     )}
                                 </div>
                                 <div className="p-3 md:p-5">
-                                    <h3 className="font-bold text-xs md:text-lg text-black group-hover:text-blue-600 transition-colors duration-300 mb-1.5 md:mb-3">
+                                    <h3 className="font-bold text-xs md:text-xl text-black group-hover:text-blue-600 transition-colors duration-300 mb-1.5 md:mb-3">
                                         {event.title}
                                     </h3>
                                     <div className="space-y-1.5">
-                                        <div className="flex items-center text-[8px] md:text-xs text-slate-400 gap-1 md:gap-1.5">
-                                            <Calendar className="w-2.5 h-2.5 md:w-3 md:h-3 text-blue-400" />
+                                        <div className="flex items-center text-[8px] md:text-sm text-slate-400 gap-1 md:gap-1.5">
+                                            <Calendar className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 text-blue-400" />
                                             <span>{event.date}</span>
                                         </div>
-                                        <div className="flex items-center text-[8px] md:text-xs text-slate-400 gap-1 md:gap-1.5">
-                                            <MapPin className="w-2.5 h-2.5 md:w-3 md:h-3 text-blue-400" />
+                                        <div className="flex items-center text-[8px] md:text-sm text-slate-400 gap-1 md:gap-1.5">
+                                            <MapPin className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 text-blue-400" />
                                             <span>{event.location}</span>
                                         </div>
                                     </div>
-                                    <p className="text-[8px] md:text-xs text-slate-500 mt-2 line-clamp-2 leading-tight">
+                                    <p className="text-[8px] md:text-sm text-slate-500 mt-2 line-clamp-2 leading-tight">
                                         {event.description}
                                     </p>
                                 </div>
@@ -375,7 +375,7 @@ export function EventsSection() {
                 {showAll && (
                     <div className="fixed inset-0 z-[10000] bg-white flex flex-col">
                         <div className="container mx-auto flex h-20 items-center justify-between px-4 border-b border-slate-100 mb-8">
-                            <h2 className="text-2xl font-bold text-black uppercase tracking-tight">Tous nos Événements ({events.length})</h2>
+                            <h2 className="text-2xl font-bold text-black capitalize md:lowercase first-letter:uppercase tracking-tight">Tous nos événements ({events.length})</h2>
                             <button
                                 onClick={() => setShowAll(false)}
                                 className="p-2 bg-slate-100 rounded-full text-slate-900 hover:bg-slate-200 transition-colors"
@@ -398,19 +398,19 @@ export function EventsSection() {
                                         }}
                                         className="glass-card rounded-xl overflow-hidden group cursor-pointer hover:border-blue-200 transition-all shadow-airy"
                                     >
-                                        <div className="h-28 md:h-44 w-full overflow-hidden relative">
+                                        <div className="h-28 md:h-60 w-full overflow-hidden relative">
                                             <img src={(event.image || "").split(',')[0].trim()} alt={event.title} className="w-full h-full object-cover" />
-                                            <span className="absolute top-2 left-2 text-[8px] md:text-xs font-bold text-blue-600 bg-white px-2 md:px-3 py-0.5 md:py-1 rounded-full shadow-sm uppercase tracking-widest">
+                                            <span className="absolute top-2 left-2 text-[8px] md:text-sm font-bold text-blue-600 bg-white px-2 md:px-3 py-0.5 md:py-1 rounded-full shadow-sm uppercase tracking-widest">
                                                 {event.type}
                                             </span>
                                         </div>
-                                        <div className="p-3 md:p-5">
-                                            <h3 className="font-bold text-xs md:text-base text-black mb-1.5 group-hover:text-blue-600 transition-colors leading-tight">{event.title}</h3>
-                                            <div className="flex items-center text-[8px] md:text-xs text-slate-400 gap-1 mb-1">
-                                                <Calendar className="w-2.5 h-2.5" />
+                                        <div className="p-3 md:p-6">
+                                            <h3 className="font-bold text-xs md:text-xl text-black mb-1.5 group-hover:text-blue-600 transition-colors leading-tight">{event.title}</h3>
+                                            <div className="flex items-center text-[8px] md:text-sm text-slate-400 gap-1 mb-1">
+                                                <Calendar className="w-2.5 h-2.5 md:w-3.5 md:h-3.5" />
                                                 <span>{event.date}</span>
                                             </div>
-                                            <p className="text-[8px] md:text-xs text-slate-500 line-clamp-2 leading-tight">{event.description}</p>
+                                            <p className="text-[8px] md:text-sm text-slate-500 line-clamp-2 leading-tight">{event.description}</p>
                                         </div>
                                     </motion.div>
                                 ))}

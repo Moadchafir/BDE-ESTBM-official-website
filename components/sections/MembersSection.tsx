@@ -39,8 +39,8 @@ export function MembersSection() {
         <section id="members" className="w-full py-10 md:py-24 px-4 relative">
             <div className="container mx-auto">
                 <div className="text-center mb-6 md:mb-16">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-black uppercase">Nos Membres</h2>
-                    <p className="text-slate-500 text-[10px] md:text-lg max-w-2xl mx-auto uppercase tracking-widest font-bold">L&apos;équipe passionnée derrière le bureau.</p>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-black uppercase md:normal-case">Nos membres</h2>
+                    <p className="text-slate-500 text-[10px] md:text-lg md:text-slate-600 md:mt-4 max-w-2xl mx-auto uppercase tracking-widest font-bold md:normal-case md:tracking-normal md:font-normal">L&apos;équipe passionnée derrière le bureau.</p>
                     {isAdmin && (
                         <div className="flex justify-center mt-6">
                             <GenericModalForm type="Member" onSuccess={fetchMembers} />
@@ -56,7 +56,7 @@ export function MembersSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.4, delay: i * 0.1 }}
-                            className="glass-card rounded-xl p-3 md:p-8 group cursor-pointer hover:-translate-y-1 transition-all duration-300 hover:border-blue-200 relative flex flex-col"
+                            className="glass-card rounded-xl p-3 md:pt-10 md:px-8 md:pb-4 group cursor-pointer hover:-translate-y-1 transition-all duration-300 hover:border-blue-200 relative flex flex-col"
                         >
                             {isAdmin && (
                                 <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-20">
@@ -79,12 +79,14 @@ export function MembersSection() {
                                         {member.role}
                                     </span>
                                 </div>
-                                {member.description && (
-                                    <p className="hidden md:block text-slate-500 text-xs leading-relaxed mt-2 line-clamp-3 px-1">{member.description}</p>
-                                )}
+                                <div className="hidden md:flex flex-1 items-center justify-center w-full py-2">
+                                    {member.bio && (
+                                        <p className="text-slate-500 text-xs leading-relaxed line-clamp-3 px-1">{member.bio}</p>
+                                    )}
+                                </div>
                             </div>
                             <div className="border-t border-slate-100 w-full mt-auto">
-                                <div className="h-7 md:h-12 flex items-center justify-center gap-3 md:gap-4">
+                                <div className="h-7 md:h-[46px] flex items-center justify-center gap-3 md:gap-4">
                                     <a href={member.socials?.ig || member.ig || "#"} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-[#E4405F] transition-colors duration-300">
                                         <Instagram className="w-3 h-3 md:w-5 md:h-5" />
                                     </a>

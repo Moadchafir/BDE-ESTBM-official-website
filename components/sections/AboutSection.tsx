@@ -46,11 +46,8 @@ export function AboutSection() {
                             Plus qu&apos;un bureau, <br />
                             <span className="gradient-subrosa">une vision partagée.</span>
                         </h2>
-                        <div className="space-y-4 md:space-y-8 text-sm sm:text-lg text-slate-600 leading-relaxed font-light text-center md:text-left">
+                        <div className="space-y-4 md:space-y-8 text-sm sm:text-lg md:text-[19px] text-slate-600 leading-relaxed font-light text-center md:text-left">
                             <p>
-                                Au cœur de l&apos;ESTBM, le Bureau des Étudiants transforme vos idées en réalité à travers des événements marquants et un accompagnement constant.
-                            </p>
-                            <p className="hidden md:block">
                                 Au cœur de l&apos;ESTBM, le Bureau des Étudiants est le moteur de la vie campus. Nous transformons vos idées en réalité à travers des événements marquants, un accompagnement constant et une représentation authentique.
                             </p>
                             <p className="hidden md:block">
