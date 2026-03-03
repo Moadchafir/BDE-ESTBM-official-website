@@ -26,13 +26,13 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         {/* Animated background */}
-        <div className="fixed inset-0 -z-10 overflow-hidden">
+        <div className="fixed top-0 left-0 w-screen h-[100dvh] -z-10 overflow-hidden pointer-events-none">
           {/* Floating gradient orbs — vibrant tones */}
-          <div className="absolute top-[-15%] right-[-10%] w-[800px] h-[800px] bg-blue-500/20 rounded-full blur-[100px] orb-float-1" />
-          <div className="absolute bottom-[-15%] left-[-10%] w-[700px] h-[700px] bg-cyan-400/20 rounded-full blur-[100px] orb-float-2" />
-          <div className="absolute top-[30%] left-[-5%] w-[600px] h-[600px] bg-indigo-400/15 rounded-full blur-[100px] orb-float-3" />
-          <div className="absolute top-[60%] right-[10%] w-[500px] h-[500px] bg-violet-400/15 rounded-full blur-[100px] orb-float-1" />
-          <div className="absolute bottom-[20%] right-[30%] w-[450px] h-[450px] bg-blue-300/12 rounded-full blur-[100px] orb-float-2" />
+          <div className="absolute top-[-15%] right-[-10%] w-[800px] h-[800px] bg-blue-500/20 rounded-full blur-[100px] orb-float-1 transform-gpu" />
+          <div className="absolute bottom-[-15%] left-[-10%] w-[700px] h-[700px] bg-cyan-400/20 rounded-full blur-[100px] orb-float-2 transform-gpu" />
+          <div className="absolute top-[30%] left-[-5%] w-[600px] h-[600px] bg-indigo-400/15 rounded-full blur-[100px] orb-float-3 transform-gpu" />
+          <div className="absolute top-[60%] right-[10%] w-[500px] h-[500px] bg-violet-400/15 rounded-full blur-[100px] orb-float-1 transform-gpu" />
+          <div className="absolute bottom-[20%] right-[30%] w-[450px] h-[450px] bg-blue-300/12 rounded-full blur-[100px] orb-float-2 transform-gpu" />
         </div>
 
         <SessionProvider>
