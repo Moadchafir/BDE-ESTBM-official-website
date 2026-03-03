@@ -50,6 +50,12 @@ export function AboutSection() {
                             <p>
                                 Au cœur de l&apos;ESTBM, le Bureau des Étudiants transforme vos idées en réalité à travers des événements marquants et un accompagnement constant.
                             </p>
+                            <p className="hidden md:block">
+                                Au cœur de l&apos;ESTBM, le Bureau des Étudiants est le moteur de la vie campus. Nous transformons vos idées en réalité à travers des événements marquants, un accompagnement constant et une représentation authentique.
+                            </p>
+                            <p className="hidden md:block">
+                                Notre mission est de créer un environnement où chaque étudiant peut s&apos;épanouir, s&apos;engager et innover. Ensemble, nous bâtissons une communauté forte et solidaire.
+                            </p>
                         </div>
                     </motion.div>
 
@@ -62,18 +68,18 @@ export function AboutSection() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                                className="glass-card p-3 md:p-10 rounded-xl border border-slate-100/50 hover:border-blue-200/50 transition-colors group flex flex-col items-center justify-between text-center h-full"
+                                className="glass-card p-3 md:p-8 rounded-xl border border-slate-100/50 hover:border-blue-200/50 transition-colors group flex flex-col items-center md:items-start text-center md:text-left"
                             >
-                                <div className="w-8 h-8 md:w-14 md:h-14 rounded-lg bg-blue-50 flex items-center justify-center mb-1 md:mb-5 group-hover:scale-110 transition-transform duration-300">
-                                    <stat.icon className="w-4 h-4 md:w-7 md:h-7 text-blue-500" />
+                                <div className="w-8 h-8 md:w-12 md:h-12 rounded-lg bg-blue-50 flex items-center justify-center mb-1 md:mb-4 group-hover:scale-110 transition-transform duration-300">
+                                    <stat.icon className="w-4 h-4 md:w-6 md:h-6 text-blue-500" />
                                 </div>
-                                <div className="flex-1 flex flex-col items-center justify-center">
-                                    <div className="text-2xl md:text-4xl font-bold text-black mb-0.5 md:mb-2 text-center">
+                                <div className="flex-1 flex flex-col items-center md:items-start justify-center">
+                                    <div className="text-2xl md:text-4xl font-bold text-black mb-0.5 md:mb-1">
                                         <span className="gradient-subrosa">{stat.value}</span>
                                     </div>
-                                    <div className="font-semibold text-slate-900 text-[8px] md:text-base uppercase tracking-wider">{stat.label}</div>
+                                    <div className="font-semibold text-slate-900 text-[8px] md:text-sm uppercase tracking-wider">{stat.label}</div>
                                 </div>
-                                <p className="hidden md:block text-slate-500 text-sm leading-relaxed mt-2">{stat.description}</p>
+                                <p className="hidden md:block text-slate-500 text-xs leading-relaxed mt-3">{stat.description}</p>
                             </motion.div>
                         ))}
                     </div>

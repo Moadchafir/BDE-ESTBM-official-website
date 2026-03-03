@@ -39,7 +39,7 @@ export function MembersSection() {
         <section id="members" className="w-full py-10 md:py-24 px-4 relative">
             <div className="container mx-auto">
                 <div className="text-center mb-6 md:mb-16">
-                    <h2 className="text-lg sm:text-4xl md:text-5xl font-bold tracking-tight text-black uppercase">Nos Membres</h2>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-black uppercase">Nos Membres</h2>
                     <p className="text-slate-500 text-[10px] md:text-lg max-w-2xl mx-auto uppercase tracking-widest font-bold">L&apos;équipe passionnée derrière le bureau.</p>
                     {isAdmin && (
                         <div className="flex justify-center mt-6">
@@ -79,6 +79,9 @@ export function MembersSection() {
                                         {member.role}
                                     </span>
                                 </div>
+                                {member.description && (
+                                    <p className="hidden md:block text-slate-500 text-xs leading-relaxed mt-2 line-clamp-3 px-1">{member.description}</p>
+                                )}
                             </div>
                             <div className="border-t border-slate-100 w-full mt-auto">
                                 <div className="h-7 md:h-12 flex items-center justify-center gap-3 md:gap-4">

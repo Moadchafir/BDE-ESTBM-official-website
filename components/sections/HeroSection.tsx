@@ -215,20 +215,20 @@ export function HeroSection() {
                                                 <p className="text-slate-500">Merci de votre intérêt. Notre équipe étudiera votre candidature avec attention.</p>
                                             </div>
                                         ) : (
-                                            <form onSubmit={handleRecruitSubmit} className="grid gap-3">
-                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                                    <div className="flex flex-col gap-1">
+                                            <form onSubmit={handleRecruitSubmit} className="grid gap-3 md:gap-6">
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
+                                                    <div className="flex flex-col gap-1 md:gap-2">
                                                         <Label htmlFor="fullName" className="text-slate-700 font-semibold text-xs md:text-sm">Nom Complet</Label>
                                                         <Input
                                                             id="fullName"
                                                             value={recruitFormData.fullName}
                                                             onChange={handleRecruitChange}
                                                             placeholder="Votre nom et prénom"
-                                                            className="h-10 text-xs bg-slate-50 border-slate-200 text-black rounded-xl px-4 focus:ring-2 focus:ring-blue-500/20 transition-all font-light"
+                                                            className="h-10 md:h-12 text-xs md:text-sm bg-slate-50 border-slate-200 text-black rounded-xl px-4 focus:ring-2 focus:ring-blue-500/20 transition-all font-light"
                                                             required
                                                         />
                                                     </div>
-                                                    <div className="flex flex-col gap-1">
+                                                    <div className="flex flex-col gap-1 md:gap-2">
                                                         <Label htmlFor="email" className="text-slate-700 font-semibold text-xs md:text-sm">Email</Label>
                                                         <Input
                                                             id="email"
@@ -236,73 +236,73 @@ export function HeroSection() {
                                                             value={recruitFormData.email}
                                                             onChange={handleRecruitChange}
                                                             placeholder="votre@email.com"
-                                                            className="h-10 text-xs bg-slate-50 border-slate-200 text-black rounded-xl px-4 focus:ring-2 focus:ring-blue-500/20 transition-all font-light"
+                                                            className="h-10 md:h-12 text-xs md:text-sm bg-slate-50 border-slate-200 text-black rounded-xl px-4 focus:ring-2 focus:ring-blue-500/20 transition-all font-light"
                                                             required
                                                         />
                                                     </div>
                                                 </div>
 
-                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                                    <div className="flex flex-col gap-1">
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
+                                                    <div className="flex flex-col gap-1 md:gap-2">
                                                         <Label htmlFor="phoneNumber" className="text-slate-700 font-semibold text-xs md:text-sm">Téléphone</Label>
                                                         <Input
                                                             id="phoneNumber"
                                                             value={recruitFormData.phoneNumber}
                                                             onChange={handleRecruitChange}
                                                             placeholder="+212 ..."
-                                                            className="h-10 text-xs bg-slate-50 border-slate-200 text-black rounded-xl px-4 focus:ring-2 focus:ring-blue-500/20 transition-all font-light"
+                                                            className="h-10 md:h-12 text-xs md:text-sm bg-slate-50 border-slate-200 text-black rounded-xl px-4 focus:ring-2 focus:ring-blue-500/20 transition-all font-light"
                                                             required
                                                         />
                                                     </div>
-                                                    <div className="flex flex-col gap-1">
+                                                    <div className="flex flex-col gap-1 md:gap-2">
                                                         <Label htmlFor="role" className="text-slate-700 font-semibold text-xs md:text-sm">Rôle Souhaité</Label>
                                                         <select
                                                             id="role"
                                                             value={recruitFormData.role}
                                                             onChange={handleRecruitChange}
-                                                            className="w-full h-10 px-4 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 text-black transition-all"
+                                                            className="w-full h-10 md:h-12 px-4 py-2 text-xs md:text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 text-black transition-all"
                                                             required
                                                         >
                                                             <option value="" disabled>Sélectionnez un département</option>
-                                                            <option value="comm">Communication & Logistics</option>
+                                                            <option value="comm">Communication &amp; Logistics</option>
                                                             <option value="hr">HR</option>
                                                             <option value="design">Design</option>
-                                                            <option value="social">SocialMedia & Content Creation</option>
+                                                            <option value="social">SocialMedia &amp; Content Creation</option>
                                                             <option value="secretary">Secretary</option>
-                                                            <option value="finance">Finance & Sponsorship</option>
+                                                            <option value="finance">Finance &amp; Sponsorship</option>
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div className="flex flex-col gap-1">
+                                                <div className="flex flex-col gap-1 md:gap-2">
                                                     <Label htmlFor="motivation" className="text-slate-700 font-semibold text-xs md:text-sm">Pourquoi nous rejoindre ?</Label>
                                                     <Textarea
                                                         id="motivation"
                                                         value={recruitFormData.motivation}
                                                         onChange={handleRecruitChange}
                                                         placeholder="Dites-nous en plus sur vous et vos motivations..."
-                                                        className="min-h-[80px] text-xs bg-slate-50 border-slate-200 text-black rounded-xl p-3 focus:ring-2 focus:ring-blue-500/20 transition-all font-light"
+                                                        className="min-h-[80px] md:min-h-[120px] text-xs md:text-sm bg-slate-50 border-slate-200 text-black rounded-xl p-3 md:p-4 focus:ring-2 focus:ring-blue-500/20 transition-all font-light"
                                                         required
                                                     />
                                                 </div>
-                                                <div className="flex flex-col gap-2">
-                                                    <Label htmlFor="capability" className="text-slate-700 font-semibold">Preuve de Capacité</Label>
+                                                <div className="flex flex-col gap-1 md:gap-2">
+                                                    <Label htmlFor="capability" className="text-slate-700 font-semibold text-xs md:text-sm">Preuve de Capacité</Label>
                                                     <Textarea
                                                         id="capability"
                                                         value={recruitFormData.capability}
                                                         onChange={handleRecruitChange}
                                                         placeholder="Décrivez vos compétences ou projets passés..."
-                                                        className="min-h-[120px] bg-slate-50 border-slate-200 text-black rounded-xl p-4 focus:ring-2 focus:ring-blue-500/20 transition-all font-light"
+                                                        className="min-h-[80px] md:min-h-[120px] text-xs md:text-sm bg-slate-50 border-slate-200 text-black rounded-xl p-3 md:p-4 focus:ring-2 focus:ring-blue-500/20 transition-all font-light"
                                                         required
                                                     />
                                                 </div>
-                                                <div className="flex flex-col gap-2">
-                                                    <Label htmlFor="cv" className="text-slate-700 font-semibold">CV / Portfolio Link (Optionnel)</Label>
+                                                <div className="flex flex-col gap-1 md:gap-2">
+                                                    <Label htmlFor="cv" className="text-slate-700 font-semibold text-xs md:text-sm">CV / Portfolio Link (Optionnel)</Label>
                                                     <Input
                                                         id="cv"
                                                         value={recruitFormData.cv}
                                                         onChange={handleRecruitChange}
                                                         placeholder="URL vers votre CV ou portfolio"
-                                                        className="bg-slate-50 border-slate-200 text-black rounded-xl h-12 px-4 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                                                        className="bg-slate-50 border-slate-200 text-black rounded-xl h-10 md:h-12 text-xs md:text-sm px-4 focus:ring-2 focus:ring-blue-500/20 transition-all"
                                                     />
                                                 </div>
                                                 <div className="flex justify-end pt-4">
