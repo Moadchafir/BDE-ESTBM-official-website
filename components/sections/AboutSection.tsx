@@ -42,11 +42,11 @@ export function AboutSection() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-black mb-6 md:mb-8 leading-tight text-center md:text-left">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-black mb-3 md:mb-8 leading-tight text-center md:text-left">
                             Plus qu&apos;un bureau, <br />
                             <span className="gradient-subrosa">une vision partagée.</span>
                         </h2>
-                        <div className="space-y-4 md:space-y-8 text-sm sm:text-lg md:text-[19px] text-slate-600 leading-relaxed font-light text-center md:text-left">
+                        <div className="space-y-4 md:space-y-8 text-base md:text-[19px] text-slate-600 leading-relaxed font-light text-center md:text-left">
                             <p>
                                 Au cœur de l&apos;ESTBM, le Bureau des Étudiants est le moteur de la vie campus. Nous transformons vos idées en réalité à travers des événements marquants, un accompagnement constant et une représentation authentique.
                             </p>

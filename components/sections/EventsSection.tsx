@@ -100,9 +100,9 @@ export function EventsSection() {
     return (
         <section id="events" className="w-full py-10 md:py-24 px-4 relative z-10 overflow-hidden">
             <div className="container mx-auto">
-                <div className="text-center mb-6 md:mb-16">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-black capitalize md:normal-case">Nos événements passés</h2>
-                    <p className="text-slate-500 text-sm md:text-lg md:text-slate-600 md:mt-4 max-w-2xl mx-auto uppercase tracking-widest font-bold md:normal-case md:tracking-normal md:font-normal">Revivez les moments forts de notre vie associative.</p>
+                <div className="text-center mb-10 md:mb-16">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-black md:normal-case">Nos événements passés</h2>
+                    <p className="text-slate-600 mt-3 text-base md:text-lg md:text-slate-600 md:mt-4 max-w-2xl mx-auto md:normal-case md:tracking-normal md:font-normal">Revivez les moments forts de notre vie associative.</p>
                     <div className="flex justify-center gap-4 mt-6">
                         {isAdmin && <GenericModalForm type="Event" onSuccess={fetchEvents} />}
                         <Button

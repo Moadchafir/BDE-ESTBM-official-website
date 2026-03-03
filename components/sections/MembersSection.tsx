@@ -39,8 +39,8 @@ export function MembersSection() {
         <section id="members" className="w-full py-10 md:py-24 px-4 relative">
             <div className="container mx-auto">
                 <div className="text-center mb-6 md:mb-16">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-black uppercase md:normal-case">Nos membres</h2>
-                    <p className="text-slate-500 text-[10px] md:text-lg md:text-slate-600 md:mt-4 max-w-2xl mx-auto uppercase tracking-widest font-bold md:normal-case md:tracking-normal md:font-normal">L&apos;équipe passionnée derrière le bureau.</p>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-black md:normal-case">Nos membres</h2>
+                    <p className="text-slate-600 mt-3 text-base md:text-lg md:text-slate-600 md:mt-4 max-w-2xl mx-auto md:normal-case md:tracking-normal md:font-normal">L&apos;équipe passionnée derrière le bureau.</p>
                     {isAdmin && (
                         <div className="flex justify-center mt-6">
                             <GenericModalForm type="Member" onSuccess={fetchMembers} />
@@ -86,7 +86,7 @@ export function MembersSection() {
                                 </div>
                             </div>
                             <div className="border-t border-slate-100 w-full mt-auto">
-                                <div className="h-7 md:h-[46px] flex items-center justify-center gap-3 md:gap-4">
+                                <div className="h-8 md:h-[46px] flex items-center justify-center gap-3 md:gap-4">
                                     <a href={member.socials?.ig || member.ig || "#"} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-[#E4405F] transition-colors duration-300">
                                         <Instagram className="w-3 h-3 md:w-5 md:h-5" />
                                     </a>
