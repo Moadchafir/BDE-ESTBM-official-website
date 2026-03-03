@@ -22,11 +22,11 @@ export default function RootLayout({
   return (
     <html lang="fr" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${inter.className} antialiased min-h-screen bg-background relative overflow-x-hidden`}
+        className={`${inter.className} antialiased min-h-screen bg-background`}
         suppressHydrationWarning
       >
         {/* Animated background */}
-        <div className="fixed top-0 left-0 w-screen h-[100dvh] -z-10 overflow-hidden pointer-events-none">
+        <div className="fixed inset-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
           {/* Floating gradient orbs — vibrant tones */}
           <div className="absolute top-[-15%] right-[-10%] w-[800px] h-[800px] bg-blue-500/20 rounded-full blur-[100px] orb-float-1 transform-gpu" />
           <div className="absolute bottom-[-15%] left-[-10%] w-[700px] h-[700px] bg-cyan-400/20 rounded-full blur-[100px] orb-float-2 transform-gpu" />
@@ -36,12 +36,14 @@ export default function RootLayout({
         </div>
 
         <SessionProvider>
-          <Header />
-          <main className="flex-1">
-            {children}
-          </main>
-          <Footer />
-          <Toaster />
+          <div className="relative overflow-x-hidden flex flex-col min-h-screen">
+            <Header />
+            <main className="flex-1">
+              {children}
+            </main>
+            <Footer />
+            <Toaster />
+          </div>
         </SessionProvider>
       </body>
     </html>
