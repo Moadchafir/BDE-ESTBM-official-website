@@ -80,25 +80,24 @@ export function HeroSection() {
     };
 
     return (
-        <section id="hero" className="w-full min-h-[90vh] flex items-center justify-center px-4 pt-24 pb-20 relative">
+        <section id="hero" className="w-full min-h-[90vh] flex items-center justify-center px-4 pt-12 md:pt-32 pb-16 md:pb-24 relative overflow-hidden">
             <div className="container mx-auto text-center max-w-5xl relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
                 >
-                    <h1 className="text-7xl md:text-9xl font-bold tracking-tighter text-black mb-8 leading-[0.95]">
+                    <h1 className="text-[54px] sm:text-7xl md:text-9xl font-bold tracking-tighter text-black mb-6 md:mb-10 leading-[1.1] md:leading-[0.95] text-center">
                         Votre voix,{" "}
                         <br />
-                        notre{" "}
-                        <span className="gradient-subrosa">mission</span>
+                        <span className="whitespace-nowrap">notre <span className="gradient-subrosa">mission</span></span>
                     </h1>
 
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: 0.2 }}
-                        className="text-xl md:text-2xl text-slate-500 mb-14 max-w-4xl mx-auto leading-relaxed"
+                        className="text-base sm:text-xl md:text-2xl text-slate-500 mb-8 md:mb-16 max-w-3xl mx-auto leading-relaxed px-4 text-center"
                     >
                         L&apos;énergie étudiante au service de l&apos;excellence, de l&apos;engagement et de l&apos;innovation.
                     </motion.p>
@@ -107,32 +106,32 @@ export function HeroSection() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: 0.3 }}
-                        className="flex flex-col sm:flex-row items-center justify-center gap-5"
+                        className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 px-4"
                     >
                         {/* FIRST BUTTON: Join Us or Recruit Requests */}
                         <Dialog onOpenChange={(open) => { if (!open) setIsRecruitSuccess(false); }}>
                             <DialogTrigger asChild>
                                 <button
-                                    className="btn-subrosa px-12 py-4 text-sm flex items-center gap-2"
+                                    className="btn-subrosa w-[80%] md:w-auto px-6 md:px-12 py-3 md:py-4 text-[11px] md:text-sm flex items-center justify-center gap-2 h-11 md:h-14"
                                     onClick={() => isAdmin && fetchRequests('recruit')}
                                 >
                                     {isAdmin && <ClipboardList className="w-4 h-4" />}
                                     {isAdmin ? "Demandes de Recrutement" : "Nous Rejoindre"}
                                 </button>
                             </DialogTrigger>
-                            <DialogContent className={`${isAdmin ? 'sm:max-w-[800px]' : 'sm:max-w-[500px]'} h-[85vh] overflow-hidden flex flex-col bg-white p-0 border-none shadow-2xl text-black`}>
-                                <div className="p-8 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+                            <DialogContent className={`${isAdmin ? 'sm:max-w-[800px]' : 'sm:max-w-[500px]'} w-[90vw] sm:w-full max-h-[90vh] overflow-hidden flex flex-col bg-white p-0 border-none shadow-2xl text-black rounded-3xl`}>
+                                <div className="p-5 md:p-8 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
                                     <DialogHeader>
-                                        <DialogTitle className="text-2xl font-bold text-black flex items-center gap-3">
-                                            <div className="p-2 bg-blue-600 rounded-lg text-white">
-                                                <ClipboardList className="w-5 h-5" />
+                                        <DialogTitle className="text-lg md:text-2xl font-bold text-black flex items-center gap-2 md:gap-3">
+                                            <div className="p-1.5 md:p-2 bg-blue-600 rounded-lg text-white shrink-0">
+                                                <ClipboardList className="w-4 h-4 md:w-5 md:h-5" />
                                             </div>
-                                            {isAdmin ? "Demandes de Recrutement" : "Rejoindre la Communauté"}
+                                            <span className="truncate">{isAdmin ? "Demandes de Recrutement" : "Rejoindre la Communauté"}</span>
                                         </DialogTitle>
                                     </DialogHeader>
                                 </div>
 
-                                <div className="flex-1 overflow-y-auto p-8 pt-4 custom-scrollbar">
+                                <div className="flex-1 overflow-y-auto p-5 md:p-8 pt-2 md:pt-4 custom-scrollbar">
                                     {isAdmin ? (
                                         isLoadingRequests ? (
                                             <div className="h-full flex flex-col items-center justify-center text-slate-400 gap-3">
@@ -216,52 +215,52 @@ export function HeroSection() {
                                                 <p className="text-slate-500">Merci de votre intérêt. Notre équipe étudiera votre candidature avec attention.</p>
                                             </div>
                                         ) : (
-                                            <form onSubmit={handleRecruitSubmit} className="grid gap-6">
+                                            <form onSubmit={handleRecruitSubmit} className="grid gap-3">
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                                    <div className="flex flex-col gap-2">
-                                                        <Label htmlFor="fullName" className="text-slate-700 font-semibold">Nom Complet</Label>
+                                                    <div className="flex flex-col gap-1">
+                                                        <Label htmlFor="fullName" className="text-slate-700 font-semibold text-xs md:text-sm">Nom Complet</Label>
                                                         <Input
                                                             id="fullName"
                                                             value={recruitFormData.fullName}
                                                             onChange={handleRecruitChange}
                                                             placeholder="Votre nom et prénom"
-                                                            className="h-12 bg-slate-50 border-slate-200 text-black rounded-xl px-4 focus:ring-2 focus:ring-blue-500/20 transition-all font-light"
+                                                            className="h-10 text-xs bg-slate-50 border-slate-200 text-black rounded-xl px-4 focus:ring-2 focus:ring-blue-500/20 transition-all font-light"
                                                             required
                                                         />
                                                     </div>
-                                                    <div className="flex flex-col gap-2">
-                                                        <Label htmlFor="email" className="text-slate-700 font-semibold">Email</Label>
+                                                    <div className="flex flex-col gap-1">
+                                                        <Label htmlFor="email" className="text-slate-700 font-semibold text-xs md:text-sm">Email</Label>
                                                         <Input
                                                             id="email"
                                                             type="email"
                                                             value={recruitFormData.email}
                                                             onChange={handleRecruitChange}
                                                             placeholder="votre@email.com"
-                                                            className="h-12 bg-slate-50 border-slate-200 text-black rounded-xl px-4 focus:ring-2 focus:ring-blue-500/20 transition-all font-light"
+                                                            className="h-10 text-xs bg-slate-50 border-slate-200 text-black rounded-xl px-4 focus:ring-2 focus:ring-blue-500/20 transition-all font-light"
                                                             required
                                                         />
                                                     </div>
                                                 </div>
 
-                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                                    <div className="flex flex-col gap-2">
-                                                        <Label htmlFor="phoneNumber" className="text-slate-700 font-semibold">Téléphone</Label>
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                                    <div className="flex flex-col gap-1">
+                                                        <Label htmlFor="phoneNumber" className="text-slate-700 font-semibold text-xs md:text-sm">Téléphone</Label>
                                                         <Input
                                                             id="phoneNumber"
                                                             value={recruitFormData.phoneNumber}
                                                             onChange={handleRecruitChange}
                                                             placeholder="+212 ..."
-                                                            className="h-12 bg-slate-50 border-slate-200 text-black rounded-xl px-4 focus:ring-2 focus:ring-blue-500/20 transition-all font-light"
+                                                            className="h-10 text-xs bg-slate-50 border-slate-200 text-black rounded-xl px-4 focus:ring-2 focus:ring-blue-500/20 transition-all font-light"
                                                             required
                                                         />
                                                     </div>
-                                                    <div className="flex flex-col gap-2">
-                                                        <Label htmlFor="role" className="text-slate-700 font-semibold">Rôle Souhaité</Label>
+                                                    <div className="flex flex-col gap-1">
+                                                        <Label htmlFor="role" className="text-slate-700 font-semibold text-xs md:text-sm">Rôle Souhaité</Label>
                                                         <select
                                                             id="role"
                                                             value={recruitFormData.role}
                                                             onChange={handleRecruitChange}
-                                                            className="w-full h-12 px-4 py-2 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 text-black transition-all"
+                                                            className="w-full h-10 px-4 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 text-black transition-all"
                                                             required
                                                         >
                                                             <option value="" disabled>Sélectionnez un département</option>
@@ -274,15 +273,14 @@ export function HeroSection() {
                                                         </select>
                                                     </div>
                                                 </div>
-
-                                                <div className="flex flex-col gap-2">
-                                                    <Label htmlFor="motivation" className="text-slate-700 font-semibold">Pourquoi nous rejoindre ?</Label>
+                                                <div className="flex flex-col gap-1">
+                                                    <Label htmlFor="motivation" className="text-slate-700 font-semibold text-xs md:text-sm">Pourquoi nous rejoindre ?</Label>
                                                     <Textarea
                                                         id="motivation"
                                                         value={recruitFormData.motivation}
                                                         onChange={handleRecruitChange}
                                                         placeholder="Dites-nous en plus sur vous et vos motivations..."
-                                                        className="min-h-[120px] bg-slate-50 border-slate-200 text-black rounded-xl p-4 focus:ring-2 focus:ring-blue-500/20 transition-all font-light"
+                                                        className="min-h-[80px] text-xs bg-slate-50 border-slate-200 text-black rounded-xl p-3 focus:ring-2 focus:ring-blue-500/20 transition-all font-light"
                                                         required
                                                     />
                                                 </div>
@@ -311,7 +309,7 @@ export function HeroSection() {
                                                     <button
                                                         type="submit"
                                                         disabled={isSubmittingRecruit}
-                                                        className="btn-subrosa w-full sm:w-auto px-10 py-4 text-sm disabled:opacity-50 flex items-center justify-center gap-2"
+                                                        className="btn-subrosa w-full py-2.5 md:py-4 text-[11px] md:text-sm mt-3 disabled:opacity-50 flex items-center justify-center gap-2 h-11 md:h-14"
                                                     >
                                                         {isSubmittingRecruit ? (
                                                             <>
@@ -330,30 +328,29 @@ export function HeroSection() {
                             </DialogContent>
                         </Dialog>
 
-                        {/* SECOND BUTTON: Collaborate or Collaboration Requests */}
                         {isAdmin ? (
                             <Dialog>
                                 <DialogTrigger asChild>
                                     <button
-                                        className="btn-subrosa-outline px-12 py-4 text-sm flex items-center gap-2"
+                                        className="btn-subrosa-outline w-full md:w-auto px-6 md:px-12 py-3 md:py-4 text-[11px] md:text-sm flex items-center justify-center gap-2 h-11 md:h-14"
                                         onClick={() => fetchRequests('contact')}
                                     >
                                         <MessageSquare className="w-4 h-4" />
                                         Demandes de Collaboration
                                     </button>
                                 </DialogTrigger>
-                                <DialogContent className="sm:max-w-[800px] h-[85vh] overflow-hidden flex flex-col bg-white p-0 border-none shadow-2xl text-black">
-                                    <div className="p-8 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+                                <DialogContent className="w-[95vw] sm:max-w-[800px] h-[85vh] md:h-[80vh] overflow-hidden flex flex-col bg-white p-0 border-none shadow-2xl text-black rounded-3xl">
+                                    <div className="p-6 md:p-8 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
                                         <DialogHeader>
-                                            <DialogTitle className="text-2xl font-bold text-black flex items-center gap-3">
-                                                <div className="p-2 bg-blue-600 rounded-lg text-white">
+                                            <DialogTitle className="text-xl md:text-2xl font-bold text-black flex items-center gap-3">
+                                                <div className="p-2 bg-blue-600 rounded-lg text-white shrink-0">
                                                     <MessageSquare className="w-5 h-5" />
                                                 </div>
-                                                Demandes de Collaboration
+                                                <span className="truncate">Demandes de Collaboration</span>
                                             </DialogTitle>
                                         </DialogHeader>
                                     </div>
-                                    <div className="flex-1 overflow-y-auto p-8 custom-scrollbar pt-4">
+                                    <div className="overflow-y-auto w-full max-h-full custom-scrollbar scroll-smooth">
                                         {isLoadingRequests ? (
                                             <div className="h-full flex flex-col items-center justify-center text-slate-400 gap-3">
                                                 <Loader2 className="w-8 h-8 animate-spin text-blue-500" />
@@ -395,7 +392,7 @@ export function HeroSection() {
                             </Dialog>
                         ) : (
                             <button
-                                className="btn-subrosa-outline px-12 py-4 text-sm"
+                                className="btn-subrosa-outline w-[80%] md:w-auto px-6 md:px-12 py-3 md:py-4 text-[11px] md:text-sm flex items-center justify-center gap-2 h-11 md:h-14"
                                 onClick={() => {
                                     const contact = document.getElementById("contact");
                                     contact?.scrollIntoView({ behavior: "smooth" });

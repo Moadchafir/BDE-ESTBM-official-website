@@ -98,11 +98,11 @@ export function EventsSection() {
     const selectedEvent = selectedEventIndex !== null ? events[selectedEventIndex] : null;
 
     return (
-        <section id="events" className="w-full py-12 px-4 relative z-10 overflow-hidden">
+        <section id="events" className="w-full py-10 md:py-24 px-4 relative z-10 overflow-hidden">
             <div className="container mx-auto">
-                <div className="text-center mb-10">
-                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black">Nos Événements Passés</h2>
-                    <p className="text-slate-600 mt-4 text-lg">Revivez les moments forts de notre vie associative.</p>
+                <div className="text-center mb-6 md:mb-10">
+                    <h2 className="text-lg sm:text-4xl md:text-5xl font-bold tracking-tight text-black uppercase">Nos Événements Passés</h2>
+                    <p className="text-slate-500 text-sm md:text-lg max-w-2xl mx-auto uppercase tracking-widest font-bold">Revivez les moments forts de notre vie associative.</p>
                     <div className="flex justify-center gap-4 mt-6">
                         {isAdmin && <GenericModalForm type="Event" onSuccess={fetchEvents} />}
                         <Button
@@ -163,8 +163,8 @@ export function EventsSection() {
                                     setCurrentImageIdx(0);
                                 }}
                                 className={`
-                                glass-card rounded-2xl overflow-hidden group cursor-pointer hover:-translate-y-1 transition-all duration-300 hover:border-blue-200 relative
-                                ${events.length >= 3 ? "min-w-[300px] md:min-w-[calc(33.333%-24px)] snap-center" : "w-full"}
+                                flex-none group snap-start glass-card rounded-xl overflow-hidden cursor-pointer hover:-translate-y-1 transition-all duration-300 hover:border-blue-200 relative
+                                ${events.length >= 3 ? "w-[55%] md:w-[calc(33.333%-24px)]" : "w-[55%] md:w-full"}
                             `}
                             >
                                 <div className="h-48 w-full overflow-hidden relative">
@@ -188,21 +188,21 @@ export function EventsSection() {
                                         </div>
                                     )}
                                 </div>
-                                <div className="p-6">
-                                    <h3 className="font-bold text-xl text-black group-hover:text-blue-600 transition-colors duration-300 mb-4">
+                                <div className="p-3 md:p-6">
+                                    <h3 className="font-bold text-xs md:text-xl text-black group-hover:text-blue-600 transition-colors duration-300 mb-1.5 md:mb-4">
                                         {event.title}
                                     </h3>
-                                    <div className="space-y-3">
-                                        <div className="flex items-center text-sm text-slate-400 gap-2">
-                                            <Calendar className="w-4 h-4 text-blue-400" />
+                                    <div className="space-y-1.5">
+                                        <div className="flex items-center text-[8px] text-slate-400 gap-1">
+                                            <Calendar className="w-2.5 h-2.5 text-blue-400" />
                                             <span>{event.date}</span>
                                         </div>
-                                        <div className="flex items-center text-sm text-slate-400 gap-2">
-                                            <MapPin className="w-4 h-4 text-blue-400" />
+                                        <div className="flex items-center text-[8px] text-slate-400 gap-1">
+                                            <MapPin className="w-2.5 h-2.5 text-blue-400" />
                                             <span>{event.location}</span>
                                         </div>
                                     </div>
-                                    <p className="text-sm text-slate-500 mt-4 line-clamp-2">
+                                    <p className="text-[8px] text-slate-500 mt-2 line-clamp-2 leading-tight">
                                         {event.description}
                                     </p>
                                 </div>
@@ -275,34 +275,34 @@ export function EventsSection() {
                                 <div className="p-10 md:p-12">
                                     <div className="flex justify-between items-start mb-8">
                                         <div>
-                                            <span className="text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full uppercase tracking-wider mb-4 inline-block">
+                                            <span className="text-[10px] md:text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
                                                 {selectedEvent.type}
                                             </span>
-                                            <h3 className="text-4xl font-bold text-black leading-tight">{selectedEvent.title}</h3>
+                                            <h3 className="text-xl md:text-4xl font-bold text-black leading-tight">{selectedEvent.title}</h3>
                                         </div>
                                     </div>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                                        <div className="flex items-center gap-4 text-slate-600">
-                                            <div className="p-3 bg-blue-50 rounded-xl">
-                                                <Calendar className="w-6 h-6 text-blue-500" />
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                                        <div className="flex items-center gap-3 text-slate-600">
+                                            <div className="p-2 bg-blue-50 rounded-lg">
+                                                <Calendar className="w-4 h-4 text-blue-500" />
                                             </div>
                                             <div>
-                                                <p className="text-xs text-slate-400 font-bold uppercase tracking-wider mb-0.5">Date de l&apos;événement</p>
-                                                <p className="font-bold text-black text-lg">{selectedEvent.date}</p>
+                                                <p className="text-[8px] text-slate-400 font-bold uppercase tracking-wider">Date</p>
+                                                <p className="font-bold text-black text-xs md:text-lg">{selectedEvent.date}</p>
                                             </div>
                                         </div>
-                                        <div className="flex items-center gap-4 text-slate-600">
-                                            <div className="p-3 bg-blue-50 rounded-xl">
-                                                <MapPin className="w-6 h-6 text-blue-500" />
+                                        <div className="flex items-center gap-3 text-slate-600">
+                                            <div className="p-2 bg-blue-50 rounded-lg">
+                                                <MapPin className="w-4 h-4 text-blue-500" />
                                             </div>
                                             <div>
-                                                <p className="text-xs text-slate-400 font-bold uppercase tracking-wider mb-0.5">Lieu</p>
-                                                <p className="font-bold text-black text-lg">{selectedEvent.location}</p>
+                                                <p className="text-[8px] text-slate-400 font-bold uppercase tracking-wider">Lieu</p>
+                                                <p className="font-bold text-black text-xs md:text-lg">{selectedEvent.location}</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="prose prose-slate max-w-none">
-                                        <p className="text-slate-600 leading-relaxed text-lg whitespace-pre-wrap border-l-4 border-blue-500/20 pl-6 italic">
+                                        <p className="text-slate-600 leading-relaxed text-xs md:text-lg whitespace-pre-wrap border-l-4 border-blue-500/20 pl-4 italic">
                                             {selectedEvent.description}
                                         </p>
                                     </div>
@@ -384,7 +384,7 @@ export function EventsSection() {
                             </button>
                         </div>
                         <div className="flex-1 overflow-y-auto px-4 pb-20 custom-scrollbar">
-                            <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <div className="container mx-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
                                 {events.map((event, i) => (
                                     <motion.div
                                         key={event.id}
@@ -396,21 +396,21 @@ export function EventsSection() {
                                             setSelectedEventIndex(i);
                                             setCurrentImageIdx(0);
                                         }}
-                                        className="glass-card rounded-2xl overflow-hidden group cursor-pointer hover:border-blue-200 transition-all shadow-airy"
+                                        className="glass-card rounded-xl overflow-hidden group cursor-pointer hover:border-blue-200 transition-all shadow-airy"
                                     >
-                                        <div className="h-48 w-full overflow-hidden relative">
+                                        <div className="h-28 w-full overflow-hidden relative">
                                             <img src={(event.image || "").split(',')[0].trim()} alt={event.title} className="w-full h-full object-cover" />
-                                            <span className="absolute top-4 left-4 text-[10px] font-bold text-blue-600 bg-white px-3 py-1 rounded-full shadow-sm uppercase tracking-widest">
+                                            <span className="absolute top-2 left-2 text-[8px] font-bold text-blue-600 bg-white px-2 py-0.5 rounded-full shadow-sm uppercase tracking-widest">
                                                 {event.type}
                                             </span>
                                         </div>
-                                        <div className="p-6">
-                                            <h3 className="font-bold text-lg text-black mb-3">{event.title}</h3>
-                                            <div className="flex items-center text-xs text-slate-400 gap-2 mb-2">
-                                                <Calendar className="w-3.5 h-3.5" />
+                                        <div className="p-3">
+                                            <h3 className="font-bold text-xs text-black mb-1.5 group-hover:text-blue-600 transition-colors leading-tight">{event.title}</h3>
+                                            <div className="flex items-center text-[8px] text-slate-400 gap-1 mb-1">
+                                                <Calendar className="w-2.5 h-2.5" />
                                                 <span>{event.date}</span>
                                             </div>
-                                            <p className="text-xs text-slate-500 line-clamp-2">{event.description}</p>
+                                            <p className="text-[8px] text-slate-500 line-clamp-2 leading-tight">{event.description}</p>
                                         </div>
                                     </motion.div>
                                 ))}

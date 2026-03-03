@@ -1,0 +1,814 @@
+﻿diff --git a/components/Footer.tsx b/components/Footer.tsx
+index 2530e14..8b5714a 100644
+--- a/components/Footer.tsx
++++ b/components/Footer.tsx
+@@ -19,26 +19,43 @@ export function Footer() {
+     };
+ 
+     return (
+-        <footer className="w-full px-4 pb-4 md:pb-10 relative z-10">
++        <footer className="w-full px-4 pb-10 relative z-10">
+             <div className="container mx-auto">
+-                <div className="w-full rounded-3xl border border-slate-200/80 bg-white shadow-sm p-5 md:p-14">
+-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 mb-6 md:mb-12">
++                <div className="w-full rounded-3xl border border-slate-200/80 bg-white shadow-sm p-10 md:p-14">
++                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+ 
+                         {/* Brand Column */}
+-                        <div className="flex flex-col items-start text-left">
+-                            <div className="flex items-center gap-3 mb-3 md:mb-5">
+-                                <Image src="/logo.png" alt="Logo" width={32} height={32} />
+-                                <span className="font-semibold text-lg md:text-xl text-black tracking-tight">Bureau des ├ëtudiants</span>
++                        <div>
++                            <div className="flex items-center gap-3 mb-5">
++                                <Image src="/logo.png" alt="Logo" width={40} height={40} />
++                                <span className="font-semibold text-xl text-black tracking-tight">Bureau des ├ëtudiants</span>
+                             </div>
+-                            <p className="text-slate-500 text-[10px] md:text-sm leading-relaxed">
++                            <p className="text-slate-500 text-sm leading-relaxed">
+                                 Le BDE anime et structure la vie du campus. ├ëv├®nements, projets, accompagnement des clubs et repr├®sentation ├®tudiante: nous agissons pour faire de chaque ann├®e une exp├®rience marquante.
+                             </p>
++                            {/* Social links */}
++                            <div className="flex items-center gap-4 mt-6">
++                                <Link
++                                    href="https://www.instagram.com/bde_estbm/"
++                                    target="_blank"
++                                    className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-400 hover:text-[#E4405F] hover:border-pink-200 transition-all duration-300"
++                                >
++                                    <Instagram className="w-5 h-5" />
++                                </Link>
++                                <Link
++                                    href="https://linkedin.com/company/bdeestbm"
++                                    target="_blank"
++                                    className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-400 hover:text-[#0A66C2] hover:border-blue-200 transition-all duration-300"
++                                >
++                                    <Linkedin className="w-5 h-5" />
++                                </Link>
++                            </div>
+                         </div>
+ 
+                         {/* Quick Links */}
+-                        <div className="hidden md:block">
++                        <div>
+                             <h4 className="text-black font-bold uppercase tracking-widest text-xs mb-5">Navigation</h4>
+-                            <ul className="flex flex-col space-y-3">
++                            <ul className="space-y-3">
+                                 {[
+                                     { label: "Accueil", href: "#hero" },
+                                     { label: "├Ç Propos", href: "#about" },
+@@ -59,80 +76,62 @@ export function Footer() {
+                         </div>
+ 
+                         {/* Contact Info */}
+-                        <div className="flex flex-col items-start text-left">
+-                            <h4 className="hidden md:block text-black font-bold uppercase tracking-widest text-xs mb-5">Contact</h4>
+-                            <ul className="space-y-3 md:space-y-4 mb-6">
+-                                <li className="flex items-start md:items-center gap-3 text-slate-500 text-[10px] md:text-sm justify-start">
+-                                    <MapPin className="w-3.5 h-3.5 text-blue-500 mt-0.5 md:mt-0 shrink-0" />
++                        <div>
++                            <h4 className="text-black font-bold uppercase tracking-widest text-xs mb-5">Contact</h4>
++                            <ul className="space-y-4">
++                                <li className="flex items-start gap-3 text-slate-500 text-sm">
++                                    <MapPin className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
+                                     <span>ESTBM, Campus universitaire M'ghila BP:591, B├®ni Mellal 23000</span>
+                                 </li>
+-                                <li className="flex items-center gap-3 text-slate-500 text-[10px] md:text-sm justify-start">
+-                                    <Mail className="w-3.5 h-3.5 text-blue-500 shrink-0" />
++                                <li className="flex items-center gap-3 text-slate-500 text-sm">
++                                    <Mail className="w-4 h-4 text-blue-500 shrink-0" />
+                                     <a href="mailto:bdeestbm@outlook.com" className="hover:text-black transition-colors">bdeestbm@outlook.com</a>
+                                 </li>
+-                                <li className="flex items-center gap-3 text-slate-500 text-[10px] md:text-sm justify-start">
+-                                    <Phone className="w-3.5 h-3.5 text-blue-500 shrink-0" />
++                                <li className="flex items-center gap-3 text-slate-500 text-sm">
++                                    <Phone className="w-4 h-4 text-blue-500 shrink-0" />
+                                     <span>Rabab Joumar | +212 766 530080</span>
+                                 </li>
+                             </ul>
+-
+-                            {/* Social links moved here */}
+-                            <div className="flex items-center gap-4 justify-center md:justify-start w-full md:w-auto">
+-                                <Link
+-                                    href="https://www.instagram.com/bde_estbm/"
+-                                    target="_blank"
+-                                    className="p-2 md:p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-400 hover:text-[#E4405F] hover:border-pink-200 transition-all duration-300"
+-                                >
+-                                    <Instagram className="w-4 h-4 md:w-5 md:h-5" />
+-                                </Link>
+-                                <Link
+-                                    href="https://linkedin.com/company/bdeestbm"
+-                                    target="_blank"
+-                                    className="p-2 md:p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-400 hover:text-[#0A66C2] hover:border-blue-200 transition-all duration-300"
+-                                >
+-                                    <Linkedin className="w-4 h-4 md:w-5 md:h-5" />
+-                                </Link>
+-                            </div>
+                         </div>
+                     </div>
+ 
+                     {/* Divider + copyright */}
+-                    <div className="pt-4 md:pt-8 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4">
+-                        <div className="flex items-center gap-3 md:gap-4">
+-                            <p className="text-slate-400 text-[8px] md:text-xs uppercase tracking-widest font-bold">
++                    <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4">
++                        <div className="flex items-center gap-4">
++                            <p className="text-slate-400 text-xs uppercase tracking-widest font-bold">
+                                 ┬® {new Date().getFullYear()} Bureau des ├ëtudiants.
+                             </p>
+                             {!isAdmin ? (
+                                 <Dialog>
+                                     <DialogTrigger asChild>
+                                         <button className="text-slate-300 hover:text-slate-500 transition-colors">
+-                                            <Lock className="w-2.5 h-2.5 md:w-3 md:h-3" />
++                                            <Lock className="w-3 h-3" />
+                                         </button>
+                                     </DialogTrigger>
+-                                    <DialogContent className="w-[85vw] sm:max-w-[400px] p-6 rounded-3xl">
+-                                        <DialogHeader className="mb-2">
+-                                            <DialogTitle className="text-lg md:text-xl font-bold">Admin Login</DialogTitle>
++                                    <DialogContent className="sm:max-w-[400px]">
++                                        <DialogHeader>
++                                            <DialogTitle>Admin Login</DialogTitle>
+                                         </DialogHeader>
+-                                        <form onSubmit={handleLogin} className="space-y-4 pt-2">
+-                                            <div className="space-y-1.5">
+-                                                <label className="text-xs font-semibold text-slate-700">Username</label>
+-                                                <Input value={username} onChange={(e) => setUsername(e.target.value)} placeholder="admin" className="h-11 rounded-xl bg-slate-50 border-slate-200" />
++                                        <form onSubmit={handleLogin} className="space-y-4 py-4">
++                                            <div className="space-y-2">
++                                                <label className="text-sm font-medium">Username</label>
++                                                <Input value={username} onChange={(e) => setUsername(e.target.value)} placeholder="admin" />
+                                             </div>
+-                                            <div className="space-y-1.5">
+-                                                <label className="text-xs font-semibold text-slate-700">Password</label>
+-                                                <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="ÔÇóÔÇóÔÇóÔÇóÔÇóÔÇóÔÇóÔÇó" className="h-11 rounded-xl bg-slate-50 border-slate-200" />
++                                            <div className="space-y-2">
++                                                <label className="text-sm font-medium">Password</label>
++                                                <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="ÔÇóÔÇóÔÇóÔÇóÔÇóÔÇóÔÇóÔÇó" />
+                                             </div>
+-                                            <button type="submit" className="btn-subrosa w-full h-11 rounded-xl mt-2">Login</button>
++                                            <button type="submit" className="btn-subrosa w-full py-2">Login</button>
+                                         </form>
+                                     </DialogContent>
+                                 </Dialog>
+                             ) : (
+-                                <button onClick={() => signOut()} className="text-slate-400 text-[8px] md:text-xs hover:text-red-500 transition-colors uppercase font-bold tracking-widest">
++                                <button onClick={() => signOut()} className="text-slate-400 text-xs hover:text-red-500 transition-colors uppercase font-bold tracking-widest">
+                                     Logout
+                                 </button>
+                             )}
+                         </div>
+-                        <p className="text-slate-300 text-[8px] md:text-xs uppercase tracking-widest font-bold italic">
++                        <p className="text-slate-300 text-xs uppercase tracking-widest font-bold italic">
+                             Built by Moad Chafir
+                         </p>
+                     </div>
+diff --git a/components/GenericModalForm.tsx b/components/GenericModalForm.tsx
+index b01b19a..875a5da 100644
+--- a/components/GenericModalForm.tsx
++++ b/components/GenericModalForm.tsx
+@@ -82,60 +82,60 @@ export function GenericModalForm({ type, initialData, onSuccess }: GenericModalF
+                     </Button>
+                 )}
+             </DialogTrigger>
+-            <DialogContent className="w-[95vw] sm:max-w-[425px] max-h-[90vh] overflow-y-auto bg-white text-black rounded-2xl p-6">
++            <DialogContent className="sm:max-w-[425px] bg-white text-black">
+                 <DialogHeader>
+                     <DialogTitle>{initialData ? "Edit" : "Add New"} {type}</DialogTitle>
+                 </DialogHeader>
+-                <form onSubmit={handleSubmit} className="flex flex-col gap-5 py-4">
+-                    <div className="flex flex-col gap-2">
+-                        <Label htmlFor="image">
++                <form onSubmit={handleSubmit} className="grid gap-4 py-4">
++                    <div className="grid grid-cols-4 items-center gap-4">
++                        <Label htmlFor="image" className="text-right">
+                             {type === "Member" ? "Image URL" : "Image URLs (comma-separated)"}
+                         </Label>
+                         <Input
+                             id={type === "Member" ? "src" : "image"}
+                             placeholder={type === "Member" ? "https://example.com/image.jpg" : "url1.jpg, url2.jpg"}
+-                            className="text-black h-11"
++                            className="col-span-3 text-black"
+                             value={formData[type === "Member" ? "src" : "image"] || ""}
+                             onChange={handleChange}
+                             required
+                         />
+                     </div>
+-                    <div className="flex flex-col gap-2">
+-                        <Label htmlFor="name">
++                    <div className="grid grid-cols-4 items-center gap-4">
++                        <Label htmlFor="name" className="text-right">
+                             {type === "Member" ? "Name" : "Title"}
+                         </Label>
+                         <Input
+                             id={type === "Member" ? "name" : "title"}
+                             placeholder={type === "Member" ? "Jane Doe" : "Annual Meetup"}
+-                            className="text-black h-11"
++                            className="col-span-3 text-black"
+                             value={formData[type === "Member" ? "name" : "title"] || ""}
+                             onChange={handleChange}
+                             required
+                         />
+                     </div>
+                     {type === "Member" ? (
+-                        <div className="flex flex-col gap-2">
+-                            <Label htmlFor="role">
++                        <div className="grid grid-cols-4 items-center gap-4">
++                            <Label htmlFor="role" className="text-right">
+                                 Role
+                             </Label>
+                             <Input
+                                 id="role"
+                                 placeholder="Pr├®sidente"
+-                                className="text-black h-11"
++                                className="col-span-3 text-black"
+                                 value={formData.role || ""}
+                                 onChange={handleChange}
+                                 required
+                             />
+                         </div>
+                     ) : (
+-                        <div className="flex flex-col gap-2">
+-                            <Label htmlFor="description">
++                        <div className="grid grid-cols-4 items-start gap-4">
++                            <Label htmlFor="description" className="text-right mt-2">
+                                 Description
+                             </Label>
+                             <Textarea
+                                 id="description"
+                                 placeholder="A brief description"
+-                                className="min-h-[100px] text-black"
++                                className="col-span-3 min-h-[100px] text-black"
+                                 value={formData.description || ""}
+                                 onChange={handleChange}
+                                 required
+@@ -144,52 +144,52 @@ export function GenericModalForm({ type, initialData, onSuccess }: GenericModalF
+                     )}
+                     {type === "Member" && (
+                         <>
+-                            <div className="flex flex-col gap-2">
+-                                <Label htmlFor="order">
++                            <div className="grid grid-cols-4 items-center gap-4">
++                                <Label htmlFor="order" className="text-right">
+                                     Order
+                                 </Label>
+                                 <Input
+                                     id="order"
+                                     type="number"
+                                     placeholder="1"
+-                                    className="text-black h-11"
++                                    className="col-span-3 text-black"
+                                     value={formData.order || ""}
+                                     onChange={handleChange}
+                                     required
+                                 />
+                             </div>
+-                            <div className="flex flex-col gap-2">
+-                                <Label htmlFor="bio">
++                            <div className="grid grid-cols-4 items-center gap-4">
++                                <Label htmlFor="bio" className="text-right">
+                                     Bio
+                                 </Label>
+                                 <Input
+                                     id="bio"
+                                     placeholder="Short description..."
+-                                    className="text-black h-11"
++                                    className="col-span-3 text-black"
+                                     value={formData.bio || ""}
+                                     onChange={handleChange}
+                                 />
+                             </div>
+-                            <div className="flex flex-col gap-2">
+-                                <Label htmlFor="ig">
++                            <div className="grid grid-cols-4 items-center gap-4">
++                                <Label htmlFor="ig" className="text-right">
+                                     Instagram
+                                 </Label>
+                                 <Input
+                                     id="ig"
+                                     placeholder="https://instagram.com/..."
+-                                    className="text-black h-11"
++                                    className="col-span-3 text-black"
+                                     value={formData.ig || formData.socials?.ig || ""}
+                                     onChange={handleChange}
+                                 />
+                             </div>
+-                            <div className="flex flex-col gap-2">
+-                                <Label htmlFor="li">
++                            <div className="grid grid-cols-4 items-center gap-4">
++                                <Label htmlFor="li" className="text-right">
+                                     LinkedIn
+                                 </Label>
+                                 <Input
+                                     id="li"
+                                     placeholder="https://linkedin.com/in/..."
+-                                    className="text-black h-11"
++                                    className="col-span-3 text-black"
+                                     value={formData.li || formData.socials?.li || ""}
+                                     onChange={handleChange}
+                                 />
+@@ -198,40 +198,40 @@ export function GenericModalForm({ type, initialData, onSuccess }: GenericModalF
+                     )}
+                     {type === "Event" && (
+                         <>
+-                            <div className="flex flex-col gap-2">
+-                                <Label htmlFor="date">
++                            <div className="grid grid-cols-4 items-center gap-4">
++                                <Label htmlFor="date" className="text-right">
+                                     Date
+                                 </Label>
+                                 <Input
+                                     id="date"
+                                     type="text"
+                                     placeholder="15 Sep 2025"
+-                                    className="text-black h-11"
++                                    className="col-span-3 text-black"
+                                     value={formData.date || ""}
+                                     onChange={handleChange}
+                                     required
+                                 />
+                             </div>
+-                            <div className="flex flex-col gap-2">
+-                                <Label htmlFor="location">
++                            <div className="grid grid-cols-4 items-center gap-4">
++                                <Label htmlFor="location" className="text-right">
+                                     Lieu
+                                 </Label>
+                                 <Input
+                                     id="location"
+                                     placeholder="Grand Amphi"
+-                                    className="text-black h-11"
++                                    className="col-span-3 text-black"
+                                     value={formData.location || ""}
+                                     onChange={handleChange}
+                                     required
+                                 />
+                             </div>
+-                            <div className="flex flex-col gap-2">
+-                                <Label htmlFor="type">
++                            <div className="grid grid-cols-4 items-center gap-4">
++                                <Label htmlFor="type" className="text-right">
+                                     Type
+                                 </Label>
+                                 <select
+                                     id="type"
+-                                    className="h-11 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm text-black focus:outline-none focus:ring-2 focus:ring-slate-950"
++                                    className="col-span-3 h-10 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm text-black focus:outline-none focus:ring-2 focus:ring-slate-950"
+                                     value={formData.type || ""}
+                                     onChange={handleChange as any}
+                                     required
+@@ -245,7 +245,7 @@ export function GenericModalForm({ type, initialData, onSuccess }: GenericModalF
+                         </>
+                     )}
+                     <div className="flex justify-end mt-4">
+-                        <Button type="submit" className="bg-black hover:bg-black/90 text-white transition-all duration-300 rounded-full px-8 py-6 w-full md:w-auto font-bold uppercase tracking-widest text-xs shadow-lg">
++                        <Button type="submit" className="bg-black hover:bg-black/90 text-white transition-all duration-300 rounded-full px-8">
+                             Save {type}
+                         </Button>
+                     </div>
+diff --git a/components/Header.tsx b/components/Header.tsx
+index ac0b67d..341790b 100644
+--- a/components/Header.tsx
++++ b/components/Header.tsx
+@@ -2,12 +2,10 @@
+ 
+ import Image from "next/image";
+ import { useState, useEffect } from "react";
+-import { Menu, X } from "lucide-react";
+ 
+ export function Header() {
+     const [mounted, setMounted] = useState(false);
+     const [scrolled, setScrolled] = useState(false);
+-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+ 
+     useEffect(() => {
+         setMounted(true);
+@@ -21,7 +19,6 @@ export function Header() {
+         if (element) {
+             element.scrollIntoView({ behavior: "smooth" });
+         }
+-        setIsMenuOpen(false);
+     };
+ 
+     if (!mounted) return null;
+@@ -31,14 +28,14 @@ export function Header() {
+             ? "border-b border-slate-200/80 bg-white/80 backdrop-blur-md shadow-sm"
+             : "border-b border-transparent bg-transparent"
+             }`}>
+-            <div className="container mx-auto flex h-[52px] md:h-16 items-center justify-between px-4">
++            <div className="container mx-auto flex h-16 items-center justify-between px-4">
+                 {/* Logo */}
+-                <div className="flex items-center gap-2 cursor-pointer z-[60]" onClick={() => scrollToSection("hero")}>
+-                    <Image src="/logo.png" alt="Logo" width={28} height={28} className="object-contain md:w-[36px] md:h-[36px]" />
+-                    <span className="text-sm md:text-lg font-semibold tracking-tight text-black">Bureau des ├ëtudiants</span>
++                <div className="flex items-center gap-2 cursor-pointer" onClick={() => scrollToSection("hero")}>
++                    <Image src="/logo.png" alt="Logo" width={36} height={36} className="object-contain" />
++                    <span className="text-lg font-semibold tracking-tight text-black">Bureau des ├ëtudiants</span>
+                 </div>
+ 
+-                {/* Desktop Nav */}
++                {/* Center Nav */}
+                 <nav className="hidden md:flex items-center gap-6">
+                     <button onClick={() => scrollToSection("hero")} className="text-xs font-bold text-slate-500 hover:text-black uppercase tracking-widest transition-all duration-200">Accueil</button>
+                     <button onClick={() => scrollToSection("about")} className="text-xs font-bold text-slate-500 hover:text-black uppercase tracking-widest transition-all duration-200">├Ç Propos</button>
+@@ -47,29 +44,8 @@ export function Header() {
+                     <button onClick={() => scrollToSection("contact")} className="text-xs font-bold text-slate-500 hover:text-black uppercase tracking-widest transition-all duration-200">Contact</button>
+                 </nav>
+ 
+-                {/* Mobile Menu Toggle */}
+-                <button
+-                    className="flex md:hidden items-center justify-center p-2 text-slate-600 hover:text-black z-[60]"
+-                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+-                    aria-label="Toggle menu"
+-                >
+-                    {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+-                </button>
+-
+-                {/* Mobile Nav Overlay */}
+-                <div className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-white transition-all duration-300 md:hidden ${isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"
+-                    }`}>
+-                    <nav className="flex flex-col items-center gap-8">
+-                        <button onClick={() => scrollToSection("hero")} className="text-lg font-bold text-slate-800 hover:text-black uppercase tracking-widest transition-all duration-200">Accueil</button>
+-                        <button onClick={() => scrollToSection("about")} className="text-lg font-bold text-slate-800 hover:text-black uppercase tracking-widest transition-all duration-200">├Ç Propos</button>
+-                        <button onClick={() => scrollToSection("members")} className="text-lg font-bold text-slate-800 hover:text-black uppercase tracking-widest transition-all duration-200">Membres</button>
+-                        <button onClick={() => scrollToSection("events")} className="text-lg font-bold text-slate-800 hover:text-black uppercase tracking-widest transition-all duration-200">├ëv├®nements</button>
+-                        <button onClick={() => scrollToSection("contact")} className="text-lg font-bold text-slate-800 hover:text-black uppercase tracking-widest transition-all duration-200 border-2 border-black px-8 py-3 rounded-full">Contact</button>
+-                    </nav>
+-                </div>
+-
+-                {/* Desktop - Right (Admin Actions / Join Us) */}
+-                <div className="hidden md:flex items-center gap-4 md:min-w-[150px] justify-end whitespace-nowrap">
++                {/* Right - Admin Actions / Join Us (Buttons moved to Hero) */}
++                <div className="flex items-center gap-4 md:min-w-[150px] justify-end whitespace-nowrap">
+                     {/* Admin actions are now integrated into the Hero Section buttons */}
+                 </div>
+             </div>
+diff --git a/components/sections/AboutSection.tsx b/components/sections/AboutSection.tsx
+index 17abc1d..6eba547 100644
+--- a/components/sections/AboutSection.tsx
++++ b/components/sections/AboutSection.tsx
+@@ -46,15 +46,12 @@ export function AboutSection() {
+                             Plus qu&apos;un bureau, <br />
+                             <span className="gradient-subrosa">une vision partag├®e.</span>
+                         </h2>
+-                        <div className="space-y-4 md:space-y-8 text-sm sm:text-xl text-slate-600 leading-relaxed font-light">
++                        <div className="space-y-8 text-xl text-slate-600 leading-relaxed font-light">
+                             <p>
+                                 Au c┼ôur de l&apos;ESTBM, le Bureau des ├ëtudiants est le moteur de la vie campus. Nous transformons vos id├®es en r├®alit├® ├á travers des ├®v├®nements marquants, un accompagnement constant et une repr├®sentation authentique.
+                             </p>
+                             <p>
+-                                Notre mission est de dynamiser votre exp├®rience estudiantine en favorisant l&apos;├®panouissement, la cr├®ativit├® et l&apos;esprit de corps au sein de notre ├®tablissement.
+-                            </p>
+-                            <p>
+-                                Ensemble, nous construisons une communaut├® forte, soud├®e et tourn├®e vers l&apos;excellence, o├╣ chaque ├®tudiant trouve sa place et sa voix.
++                                Notre mission est de cr├®er un environnement o├╣ chaque ├®tudiant peut s&apos;├®panouir, s&apos;engager et innover. Ensemble, nous b├ótissons une communaut├® forte et solidaire.
+                             </p>
+                         </div>
+                     </motion.div>
+@@ -68,15 +65,15 @@ export function AboutSection() {
+                                 whileInView={{ opacity: 1, y: 0 }}
+                                 viewport={{ once: true }}
+                                 transition={{ duration: 0.5, delay: i * 0.1 }}
+-                                className="glass-card p-6 md:p-10 rounded-xl border border-slate-100/50 hover:border-blue-200/50 transition-colors group flex flex-col items-center md:items-start text-center md:text-left"
++                                className="glass-card p-8 rounded-2xl border border-slate-100/50 hover:border-blue-200/50 transition-colors group"
+                             >
+-                                <div className="w-9 h-9 md:w-14 md:h-14 rounded-lg bg-blue-50 flex items-center justify-center mb-2.5 md:mb-5 group-hover:scale-110 transition-transform duration-300">
+-                                    <stat.icon className="w-[18px] h-[18px] md:w-7 md:h-7 text-blue-500" />
++                                <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
++                                    <stat.icon className="w-7 h-7 text-blue-500" />
+                                 </div>
+-                                <div className="text-2xl md:text-4xl font-bold text-black mb-1 md:mb-2 text-center md:text-left">
++                                <div className="text-4xl font-bold text-black mb-2">
+                                     <span className="gradient-subrosa">{stat.value}</span>
+                                 </div>
+-                                <div className="font-semibold text-slate-900 text-[10px] md:text-base mb-1 uppercase tracking-wider">{stat.label}</div>
++                                <div className="font-semibold text-slate-900 text-base mb-1 uppercase tracking-wider">{stat.label}</div>
+                                 <p className="text-slate-500 text-sm leading-relaxed">{stat.description}</p>
+                             </motion.div>
+                         ))}
+diff --git a/components/sections/ContactSection.tsx b/components/sections/ContactSection.tsx
+index cc6d79a..ae171a1 100644
+--- a/components/sections/ContactSection.tsx
++++ b/components/sections/ContactSection.tsx
+@@ -49,11 +49,11 @@ export function ContactSection() {
+     };
+ 
+     return (
+-        <section id="contact" className="w-full pt-6 pb-16 md:py-24 px-4 relative flex flex-col">
++        <section id="contact" className="w-full min-h-[90vh] py-12 px-4 relative flex flex-col pt-20">
+             <div className="container mx-auto max-w-4xl">
+-                <div className="text-center mb-10 md:mb-16">
+-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-black">Prenez Contact</h2>
+-                    <p className="text-slate-600 mt-3 md:mt-4 text-base md:text-lg">Une question ou envie de collaborer ? Envoyez-nous un message.</p>
++                <div className="text-center mb-10">
++                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black">Prenez Contact</h2>
++                    <p className="text-slate-600 mt-4 text-lg">Une question ou envie de collaborer ? Envoyez-nous un message.</p>
+                 </div>
+ 
+                 <motion.div
+@@ -61,7 +61,7 @@ export function ContactSection() {
+                     whileInView={{ opacity: 1, y: 0 }}
+                     viewport={{ once: true }}
+                     transition={{ duration: 0.5 }}
+-                    className="glass-card rounded-2xl p-6 md:p-12 mx-auto relative overflow-hidden"
++                    className="glass-card rounded-2xl p-8 md:p-12 mx-auto relative overflow-hidden"
+                 >
+                     {isSubmitted ? (
+                         <motion.div
+@@ -82,78 +82,78 @@ export function ContactSection() {
+                             </button>
+                         </motion.div>
+                     ) : (
+-                        <form className="space-y-3 md:space-y-6 scale-[0.95] origin-top md:scale-100" onSubmit={handleSubmit}>
+-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
+-                                <div className="space-y-1.5 md:space-y-2">
+-                                    <Label htmlFor="firstName" className="text-slate-700 font-medium text-xs md:text-sm">Pr├®nom</Label>
++                        <form className="space-y-6" onSubmit={handleSubmit}>
++                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
++                                <div className="space-y-2">
++                                    <Label htmlFor="firstName" className="text-slate-700">Pr├®nom</Label>
+                                     <Input
+                                         id="firstName"
+                                         value={formData.firstName}
+                                         placeholder="Jane"
+-                                        className="bg-slate-50 border-slate-200 text-black h-9 md:h-12 text-sm"
++                                        className="bg-slate-50 border-slate-200 text-black"
+                                         required
+                                         onChange={handleChange}
+                                     />
+                                 </div>
+-                                <div className="space-y-1.5 md:space-y-2">
+-                                    <Label htmlFor="lastName" className="text-slate-700 font-medium text-xs md:text-sm">Nom</Label>
++                                <div className="space-y-2">
++                                    <Label htmlFor="lastName" className="text-slate-700">Nom</Label>
+                                     <Input
+                                         id="lastName"
+                                         value={formData.lastName}
+                                         placeholder="Doe"
+-                                        className="bg-slate-50 border-slate-200 text-black h-9 md:h-12 text-sm"
++                                        className="bg-slate-50 border-slate-200 text-black"
+                                         required
+                                         onChange={handleChange}
+                                     />
+                                 </div>
+                             </div>
+-                            <div className="space-y-1.5 md:space-y-2">
+-                                <Label htmlFor="email" className="text-slate-700 font-medium text-xs md:text-sm">Email</Label>
++                            <div className="space-y-2">
++                                <Label htmlFor="email" className="text-slate-700">Email</Label>
+                                 <Input
+                                     id="email"
+                                     type="email"
+                                     value={formData.email}
+                                     placeholder="jane@example.com"
+-                                    className="bg-slate-50 border-slate-200 text-black h-9 md:h-12 text-sm"
++                                    className="bg-slate-50 border-slate-200 text-black"
+                                     required
+                                     onChange={handleChange}
+                                 />
+                             </div>
+-                            <div className="space-y-1.5 md:space-y-2">
+-                                <Label htmlFor="subject" className="text-slate-700 font-medium text-xs md:text-sm">Objet</Label>
++                            <div className="space-y-2">
++                                <Label htmlFor="subject" className="text-slate-700">Objet</Label>
+                                 <Input
+                                     id="subject"
+                                     value={formData.subject}
+                                     placeholder="Sujet de votre message"
+-                                    className="bg-slate-50 border-slate-200 text-black h-9 md:h-12 text-sm"
++                                    className="bg-slate-50 border-slate-200 text-black"
+                                     required
+                                     onChange={handleChange}
+                                 />
+                             </div>
+-                            <div className="space-y-1.5 md:space-y-2">
+-                                <Label htmlFor="message" className="text-slate-700 font-medium text-xs md:text-sm">Message</Label>
++                            <div className="space-y-2">
++                                <Label htmlFor="message" className="text-slate-700">Message</Label>
+                                 <Textarea
+                                     id="message"
+                                     value={formData.message}
+                                     placeholder="Comment pouvons-nous vous aider ?"
+-                                    className="min-h-[90px] md:min-h-[150px] bg-slate-50 border-slate-200 text-black text-sm"
++                                    className="min-h-[120px] bg-slate-50 border-slate-200 text-black"
+                                     required
+                                     onChange={handleChange}
+                                 />
+                             </div>
+ 
+                             {error && (
+-                                <p className="text-red-500 text-xs mt-1">{error}</p>
++                                <p className="text-red-500 text-sm mt-2">{error}</p>
+                             )}
+ 
+                             <button
+                                 type="submit"
+                                 disabled={isSubmitting}
+-                                className="btn-subrosa w-full py-2.5 md:py-4 text-[11px] md:text-sm mt-3 disabled:opacity-50 flex items-center justify-center gap-2 h-12 md:h-14"
++                                className="btn-subrosa w-full py-4 text-sm mt-4 disabled:opacity-50 flex items-center justify-center gap-2"
+                             >
+                                 {isSubmitting ? (
+                                     <>
+-                                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
++                                        <Loader2 className="w-4 h-4 animate-spin" />
+                                         Envoi en cours...
+                                     </>
+                                 ) : (
+diff --git a/components/sections/EventsSection.tsx b/components/sections/EventsSection.tsx
+index 7323460..53650c5 100644
+--- a/components/sections/EventsSection.tsx
++++ b/components/sections/EventsSection.tsx
+@@ -162,9 +162,9 @@ export function EventsSection() {
+                                     setSelectedEventIndex(i);
+                                     setCurrentImageIdx(0);
+                                 }}
+-                                className={`
+-                                flex-none group snap-start glass-card rounded-2xl overflow-hidden cursor-pointer hover:-translate-y-1 transition-all duration-300 hover:border-blue-200 relative
+-                                ${events.length >= 3 ? "w-[75%] md:w-[calc(33.333%-24px)]" : "w-[75%] md:w-full"}
++                                lassName={`
++                                glass-card rounded-2xl overflow-hidden group cursor-pointer hover:-translate-y-1 transition-all duration-300 hover:border-blue-200 relative
++                                ${events.length >= 3 ? "min-w-[300px] md:min-w-[calc(33.333%-24px)] snap-center" : "w-full"}
+                             `}
+                             >
+                                 <div className="h-48 w-full overflow-hidden relative">
+diff --git a/components/sections/HeroSection.tsx b/components/sections/HeroSection.tsx
+index e49cc2e..f4fa9d6 100644
+--- a/components/sections/HeroSection.tsx
++++ b/components/sections/HeroSection.tsx
+@@ -80,24 +80,25 @@ export function HeroSection() {
+     };
+ 
+     return (
+-        <section id="hero" className="w-full min-h-[90vh] flex items-center justify-center px-4 pt-12 md:pt-32 pb-16 md:pb-24 relative overflow-hidden">
++        <section id="hero" className="w-full min-h-[90vh] flex items-center justify-center px-4 pt-24 pb-20 relative">
+             <div className="container mx-auto text-center max-w-5xl relative z-10">
+                 <motion.div
+                     initial={{ opacity: 0, y: 30 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     transition={{ duration: 0.5, ease: "easeOut" }}
+                 >
+-                    <h1 className="text-[54px] sm:text-7xl md:text-9xl font-bold tracking-tighter text-black mb-6 md:mb-10 leading-[1.1] md:leading-[0.95] text-center">
++                    <h1 className="text-7xl md:text-9xl font-bold tracking-tighter text-black mb-8 leading-[0.95]">
+                         Votre voix,{" "}
+                         <br />
+-                        <span className="whitespace-nowrap">notre <span className="gradient-subrosa">mission</span></span>
++                        notre{" "}
++                        <span className="gradient-subrosa">mission</span>
+                     </h1>
+ 
+                     <motion.p
+                         initial={{ opacity: 0, y: 20 }}
+                         animate={{ opacity: 1, y: 0 }}
+                         transition={{ duration: 0.4, delay: 0.2 }}
+-                        className="text-base sm:text-xl md:text-2xl text-slate-500 mb-8 md:mb-16 max-w-3xl mx-auto leading-relaxed px-4 text-center"
++                        className="text-xl md:text-2xl text-slate-500 mb-14 max-w-4xl mx-auto leading-relaxed"
+                     >
+                         L&apos;├®nergie ├®tudiante au service de l&apos;excellence, de l&apos;engagement et de l&apos;innovation.
+                     </motion.p>
+@@ -106,32 +107,32 @@ export function HeroSection() {
+                         initial={{ opacity: 0, y: 20 }}
+                         animate={{ opacity: 1, y: 0 }}
+                         transition={{ duration: 0.4, delay: 0.3 }}
+-                        className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 px-4"
++                        className="flex flex-col sm:flex-row items-center justify-center gap-5"
+                     >
+                         {/* FIRST BUTTON: Join Us or Recruit Requests */}
+                         <Dialog onOpenChange={(open) => { if (!open) setIsRecruitSuccess(false); }}>
+                             <DialogTrigger asChild>
+                                 <button
+-                                    className="btn-subrosa w-[80%] md:w-auto px-6 md:px-12 py-3 md:py-4 text-[11px] md:text-sm flex items-center justify-center gap-2 h-11 md:h-14"
++                                    className="btn-subrosa px-12 py-4 text-sm flex items-center gap-2"
+                                     onClick={() => isAdmin && fetchRequests('recruit')}
+                                 >
+                                     {isAdmin && <ClipboardList className="w-4 h-4" />}
+                                     {isAdmin ? "Demandes de Recrutement" : "Nous Rejoindre"}
+                                 </button>
+                             </DialogTrigger>
+-                            <DialogContent className={`${isAdmin ? 'sm:max-w-[800px]' : 'sm:max-w-[500px]'} w-[90vw] sm:w-full max-h-[90vh] overflow-hidden flex flex-col bg-white p-0 border-none shadow-2xl text-black rounded-3xl`}>
+-                                <div className="p-5 md:p-8 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
++                            <DialogContent className={`${isAdmin ? 'sm:max-w-[800px]' : 'sm:max-w-[500px]'} h-[85vh] overflow-hidden flex flex-col bg-white p-0 border-none shadow-2xl text-black`}>
++                                <div className="p-8 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+                                     <DialogHeader>
+-                                        <DialogTitle className="text-lg md:text-2xl font-bold text-black flex items-center gap-2 md:gap-3">
+-                                            <div className="p-1.5 md:p-2 bg-blue-600 rounded-lg text-white shrink-0">
+-                                                <ClipboardList className="w-4 h-4 md:w-5 md:h-5" />
++                                        <DialogTitle className="text-2xl font-bold text-black flex items-center gap-3">
++                                            <div className="p-2 bg-blue-600 rounded-lg text-white">
++                                                <ClipboardList className="w-5 h-5" />
+                                             </div>
+-                                            <span className="truncate">{isAdmin ? "Demandes de Recrutement" : "Rejoindre la Communaut├®"}</span>
++                                            {isAdmin ? "Demandes de Recrutement" : "Rejoindre la Communaut├®"}
+                                         </DialogTitle>
+                                     </DialogHeader>
+                                 </div>
+ 
+-                                <div className="flex-1 overflow-y-auto p-5 md:p-8 pt-2 md:pt-4 custom-scrollbar">
++                                <div className="flex-1 overflow-y-auto p-8 pt-4 custom-scrollbar">
+                                     {isAdmin ? (
+                                         isLoadingRequests ? (
+                                             <div className="h-full flex flex-col items-center justify-center text-slate-400 gap-3">
+@@ -310,7 +311,7 @@ export function HeroSection() {
+                                                     <button
+                                                         type="submit"
+                                                         disabled={isSubmittingRecruit}
+-                                                        className="btn-subrosa w-full py-2.5 md:py-4 text-[11px] md:text-sm mt-3 disabled:opacity-50 flex items-center justify-center gap-2 h-11 md:h-14"
++                                                        className="btn-subrosa w-full sm:w-auto px-10 py-4 text-sm disabled:opacity-50 flex items-center justify-center gap-2"
+                                                     >
+                                                         {isSubmittingRecruit ? (
+                                                             <>
+@@ -329,29 +330,30 @@ export function HeroSection() {
+                             </DialogContent>
+                         </Dialog>
+ 
++                        {/* SECOND BUTTON: Collaborate or Collaboration Requests */}
+                         {isAdmin ? (
+                             <Dialog>
+                                 <DialogTrigger asChild>
+                                     <button
+-                                        className="btn-subrosa-outline w-full md:w-auto px-6 md:px-12 py-3 md:py-4 text-[11px] md:text-sm flex items-center justify-center gap-2 h-11 md:h-14"
++                                        className="btn-subrosa-outline px-12 py-4 text-sm flex items-center gap-2"
+                                         onClick={() => fetchRequests('contact')}
+                                     >
+                                         <MessageSquare className="w-4 h-4" />
+                                         Demandes de Collaboration
+                                     </button>
+                                 </DialogTrigger>
+-                                <DialogContent className="w-[95vw] sm:max-w-[800px] h-[85vh] md:h-[80vh] overflow-hidden flex flex-col bg-white p-0 border-none shadow-2xl text-black rounded-3xl">
+-                                    <div className="p-6 md:p-8 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
++                                <DialogContent className="sm:max-w-[800px] h-[85vh] overflow-hidden flex flex-col bg-white p-0 border-none shadow-2xl text-black">
++                                    <div className="p-8 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+                                         <DialogHeader>
+-                                            <DialogTitle className="text-xl md:text-2xl font-bold text-black flex items-center gap-3">
+-                                                <div className="p-2 bg-blue-600 rounded-lg text-white shrink-0">
++                                            <DialogTitle className="text-2xl font-bold text-black flex items-center gap-3">
++                                                <div className="p-2 bg-blue-600 rounded-lg text-white">
+                                                     <MessageSquare className="w-5 h-5" />
+                                                 </div>
+-                                                <span className="truncate">Demandes de Collaboration</span>
++                                                Demandes de Collaboration
+                                             </DialogTitle>
+                                         </DialogHeader>
+                                     </div>
+-                                    <div className="overflow-y-auto w-full max-h-full custom-scrollbar scroll-smooth">
++                                    <div className="flex-1 overflow-y-auto p-8 custom-scrollbar pt-4">
+                                         {isLoadingRequests ? (
+                                             <div className="h-full flex flex-col items-center justify-center text-slate-400 gap-3">
+                                                 <Loader2 className="w-8 h-8 animate-spin text-blue-500" />
+@@ -393,7 +395,7 @@ export function HeroSection() {
+                             </Dialog>
+                         ) : (
+                             <button
+-                                className="btn-subrosa-outline w-[80%] md:w-auto px-6 md:px-12 py-3 md:py-4 text-[11px] md:text-sm flex items-center justify-center gap-2 h-11 md:h-14"
++                                className="btn-subrosa-outline px-12 py-4 text-sm"
+                                 onClick={() => {
+                                     const contact = document.getElementById("contact");
+                                     contact?.scrollIntoView({ behavior: "smooth" });
+diff --git a/components/sections/MembersSection.tsx b/components/sections/MembersSection.tsx
+index b475e8f..bec3073 100644
+--- a/components/sections/MembersSection.tsx
++++ b/components/sections/MembersSection.tsx
+@@ -56,7 +56,7 @@ export function MembersSection() {
+                             whileInView={{ opacity: 1, y: 0 }}
+                             viewport={{ once: true, margin: "-50px" }}
+                             transition={{ duration: 0.4, delay: i * 0.1 }}
+-                            className="glass-card rounded-xl p-4 md:p-8 group cursor-pointer hover:-translate-y-1 transition-all duration-300 hover:border-blue-200 relative flex flex-col"
++                            className="glass-card rounded-2xl p-6 group cursor-pointer hover:-translate-y-1 transition-all duration-300 hover:border-blue-200 relative"
+                         >
+                             {isAdmin && (
+                                 <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-20">
+@@ -74,25 +74,19 @@ export function MembersSection() {
+                                     <img src={member.src} alt={member.name} className="w-full h-full object-cover" />
+                                 </div>
+                                 <h3 className="font-bold text-lg text-black group-hover:text-blue-600 transition-colors duration-300 uppercase tracking-tight">{member.name}</h3>
+-                                <div className="flex-1 flex flex-col justify-center w-full py-1">
+-                                    <div className="w-full flex items-center justify-center">
+-                                        <span className="inline-block text-[7px] md:text-xs font-bold text-blue-400 bg-blue-500/10 px-2 md:px-4 py-0.5 md:py-1.5 rounded-full uppercase tracking-wider break-words max-w-full">
+-                                            {member.role}
+-                                        </span>
+-                                    </div>
+-                                </div>
++                                <span className="text-xs font-bold text-blue-400 bg-blue-500/10 px-4 py-1.5 rounded-full mt-3 uppercase tracking-wider">
++                                    {member.role}
++                                </span>
+                                 <p className="text-xs text-slate-500 mt-4 line-clamp-4 leading-relaxed w-full px-1">
+                                     {member.bio || "Membre d├®vou├® de l'├®quipe."}
+                                 </p>
+-                                <div className="mt-auto border-t border-slate-100 w-full">
+-                                    <div className="flex items-center gap-2.5 md:gap-4 py-3 md:pt-4 w-full justify-center">
+-                                        <a href={member.socials?.ig || member.ig || "#"} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-[#E4405F] transition-colors duration-300">
+-                                            <Instagram className="w-5 h-5" />
+-                                        </a>
+-                                        <a href={member.socials?.li || member.li || "#"} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-[#0A66C2] transition-colors duration-300">
+-                                            <Linkedin className="w-5 h-5" />
+-                                        </a>
+-                                    </div>
++                                <div className="flex items-center gap-4 mt-4 pt-4 border-t border-slate-100 w-full justify-center">
++                                    <a href={member.socials?.ig || member.ig || "#"} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-[#E4405F] transition-colors duration-300">
++                                        <Instagram className="w-5 h-5" />
++                                    </a>
++                                    <a href={member.socials?.li || member.li || "#"} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-[#0A66C2] transition-colors duration-300">
++                                        <Linkedin className="w-5 h-5" />
++                                    </a>
+                                 </div>
+                             </div>
+                         </motion.div>

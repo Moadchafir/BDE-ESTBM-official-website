@@ -82,60 +82,60 @@ export function GenericModalForm({ type, initialData, onSuccess }: GenericModalF
                     </Button>
                 )}
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px] bg-white text-black">
+            <DialogContent className="w-[95vw] sm:max-w-[425px] max-h-[90vh] overflow-y-auto bg-white text-black rounded-2xl p-6">
                 <DialogHeader>
                     <DialogTitle>{initialData ? "Edit" : "Add New"} {type}</DialogTitle>
                 </DialogHeader>
-                <form onSubmit={handleSubmit} className="grid gap-4 py-4">
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="image" className="text-right">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-5 py-4">
+                    <div className="flex flex-col gap-2">
+                        <Label htmlFor="image">
                             {type === "Member" ? "Image URL" : "Image URLs (comma-separated)"}
                         </Label>
                         <Input
                             id={type === "Member" ? "src" : "image"}
                             placeholder={type === "Member" ? "https://example.com/image.jpg" : "url1.jpg, url2.jpg"}
-                            className="col-span-3 text-black"
+                            className="text-black h-11"
                             value={formData[type === "Member" ? "src" : "image"] || ""}
                             onChange={handleChange}
                             required
                         />
                     </div>
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="name" className="text-right">
+                    <div className="flex flex-col gap-2">
+                        <Label htmlFor="name">
                             {type === "Member" ? "Name" : "Title"}
                         </Label>
                         <Input
                             id={type === "Member" ? "name" : "title"}
                             placeholder={type === "Member" ? "Jane Doe" : "Annual Meetup"}
-                            className="col-span-3 text-black"
+                            className="text-black h-11"
                             value={formData[type === "Member" ? "name" : "title"] || ""}
                             onChange={handleChange}
                             required
                         />
                     </div>
                     {type === "Member" ? (
-                        <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="role" className="text-right">
+                        <div className="flex flex-col gap-2">
+                            <Label htmlFor="role">
                                 Role
                             </Label>
                             <Input
                                 id="role"
                                 placeholder="Présidente"
-                                className="col-span-3 text-black"
+                                className="text-black h-11"
                                 value={formData.role || ""}
                                 onChange={handleChange}
                                 required
                             />
                         </div>
                     ) : (
-                        <div className="grid grid-cols-4 items-start gap-4">
-                            <Label htmlFor="description" className="text-right mt-2">
+                        <div className="flex flex-col gap-2">
+                            <Label htmlFor="description">
                                 Description
                             </Label>
                             <Textarea
                                 id="description"
                                 placeholder="A brief description"
-                                className="col-span-3 min-h-[100px] text-black"
+                                className="min-h-[100px] text-black"
                                 value={formData.description || ""}
                                 onChange={handleChange}
                                 required
@@ -144,52 +144,52 @@ export function GenericModalForm({ type, initialData, onSuccess }: GenericModalF
                     )}
                     {type === "Member" && (
                         <>
-                            <div className="grid grid-cols-4 items-center gap-4">
-                                <Label htmlFor="order" className="text-right">
+                            <div className="flex flex-col gap-2">
+                                <Label htmlFor="order">
                                     Order
                                 </Label>
                                 <Input
                                     id="order"
                                     type="number"
                                     placeholder="1"
-                                    className="col-span-3 text-black"
+                                    className="text-black h-11"
                                     value={formData.order || ""}
                                     onChange={handleChange}
                                     required
                                 />
                             </div>
-                            <div className="grid grid-cols-4 items-center gap-4">
-                                <Label htmlFor="bio" className="text-right">
+                            <div className="flex flex-col gap-2">
+                                <Label htmlFor="bio">
                                     Bio
                                 </Label>
                                 <Input
                                     id="bio"
                                     placeholder="Short description..."
-                                    className="col-span-3 text-black"
+                                    className="text-black h-11"
                                     value={formData.bio || ""}
                                     onChange={handleChange}
                                 />
                             </div>
-                            <div className="grid grid-cols-4 items-center gap-4">
-                                <Label htmlFor="ig" className="text-right">
+                            <div className="flex flex-col gap-2">
+                                <Label htmlFor="ig">
                                     Instagram
                                 </Label>
                                 <Input
                                     id="ig"
                                     placeholder="https://instagram.com/..."
-                                    className="col-span-3 text-black"
+                                    className="text-black h-11"
                                     value={formData.ig || formData.socials?.ig || ""}
                                     onChange={handleChange}
                                 />
                             </div>
-                            <div className="grid grid-cols-4 items-center gap-4">
-                                <Label htmlFor="li" className="text-right">
+                            <div className="flex flex-col gap-2">
+                                <Label htmlFor="li">
                                     LinkedIn
                                 </Label>
                                 <Input
                                     id="li"
                                     placeholder="https://linkedin.com/in/..."
-                                    className="col-span-3 text-black"
+                                    className="text-black h-11"
                                     value={formData.li || formData.socials?.li || ""}
                                     onChange={handleChange}
                                 />
@@ -198,40 +198,40 @@ export function GenericModalForm({ type, initialData, onSuccess }: GenericModalF
                     )}
                     {type === "Event" && (
                         <>
-                            <div className="grid grid-cols-4 items-center gap-4">
-                                <Label htmlFor="date" className="text-right">
+                            <div className="flex flex-col gap-2">
+                                <Label htmlFor="date">
                                     Date
                                 </Label>
                                 <Input
                                     id="date"
                                     type="text"
                                     placeholder="15 Sep 2025"
-                                    className="col-span-3 text-black"
+                                    className="text-black h-11"
                                     value={formData.date || ""}
                                     onChange={handleChange}
                                     required
                                 />
                             </div>
-                            <div className="grid grid-cols-4 items-center gap-4">
-                                <Label htmlFor="location" className="text-right">
+                            <div className="flex flex-col gap-2">
+                                <Label htmlFor="location">
                                     Lieu
                                 </Label>
                                 <Input
                                     id="location"
                                     placeholder="Grand Amphi"
-                                    className="col-span-3 text-black"
+                                    className="text-black h-11"
                                     value={formData.location || ""}
                                     onChange={handleChange}
                                     required
                                 />
                             </div>
-                            <div className="grid grid-cols-4 items-center gap-4">
-                                <Label htmlFor="type" className="text-right">
+                            <div className="flex flex-col gap-2">
+                                <Label htmlFor="type">
                                     Type
                                 </Label>
                                 <select
                                     id="type"
-                                    className="col-span-3 h-10 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm text-black focus:outline-none focus:ring-2 focus:ring-slate-950"
+                                    className="h-11 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm text-black focus:outline-none focus:ring-2 focus:ring-slate-950"
                                     value={formData.type || ""}
                                     onChange={handleChange as any}
                                     required
@@ -245,7 +245,7 @@ export function GenericModalForm({ type, initialData, onSuccess }: GenericModalF
                         </>
                     )}
                     <div className="flex justify-end mt-4">
-                        <Button type="submit" className="bg-black hover:bg-black/90 text-white transition-all duration-300 rounded-full px-8">
+                        <Button type="submit" className="bg-black hover:bg-black/90 text-white transition-all duration-300 rounded-full px-8 py-6 w-full md:w-auto font-bold uppercase tracking-widest text-xs shadow-lg">
                             Save {type}
                         </Button>
                     </div>

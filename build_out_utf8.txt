@@ -1,12 +1,10 @@
 ﻿
 > fractal-eclipse@0.1.0 build
-> next build
+> prisma generate && next build
 
-node.exe : ÔÜá 
-Warning: Next.js 
-inferred your 
-workspace root, but it 
-may not be correct.
+node.exe : Environment 
+variables loaded from 
+.env
 At line:1 char:1
 + & "C:\Program 
 Files\nodejs/node.exe" 
@@ -18,14 +16,26 @@ a\Roaming ...
 ~~
     + CategoryInfo     
          : NotSpecifi  
-  ed: (ÔÜá Warning:    
- Ne...not be correc    
-t.:String) [], Rem    
-oteException
+  ed: (Environment v   
+ ariables loaded fr    
+om .env:String) []    
+, RemoteException
     + FullyQualifiedEr 
    rorId : NativeComm  
   andError
  
+Prisma schema loaded from prisma\schema.prisma
+
+Ô£ö Generated Prisma Client (v6.19.2) to .\node_modules\@prisma\client in 74ms
+
+Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+
+Tip: Interested in query caching in just a few lines of code? Try Accelerate today! https://pris.ly/tip-3-accelerate
+
+ÔÜá Warning: Next.js 
+inferred your 
+workspace root, but it 
+may not be correct.
  We detected multiple 
 lockfiles and selected 
 the directory of C:\Use
@@ -53,76 +63,30 @@ round\fractal-eclipse\p
 ackage-lock.json
 
 Ôû▓ Next.js 16.1.6 (Turbopack)
+- Environments: .env
 
   Creating an optimized production build ...
+Ô£ô Compiled successfully in 5.1s
+  Running TypeScript ...
+  Collecting page data using 11 workers ...
+  Generating static pages using 11 workers (0/9) ...
+  Generating static pages using 11 workers (2/9) 
+  Generating static pages using 11 workers (4/9) 
+  Generating static pages using 11 workers (6/9) 
+Ô£ô Generating static pages using 11 workers (9/9) in 673.2ms
+  Finalizing page optimization ...
 
-> Build error occurred
-Error: Turbopack build 
-failed with 1 errors:
-./middleware.ts:1:1
-Module not found: 
-Can't resolve 
-'next-auth'
-[0m[31m[1m>[22m[39
-m[90m 1 |[39m 
-[36mimport[39m 
-[33mNextAuth[39m 
-[36mfrom[39m [32m'ne
-xt-auth'[39m[33m;[39
-m
- [90m   |[39m [31m[
-1m^[22m[39m[31m[1m^
-[22m[39m[31m[1m^[2
-2m[39m[31m[1m^[22m
-[39m[31m[1m^[22m[39
-m[31m[1m^[22m[39m[
-31m[1m^[22m[39m[31m
-[1m^[22m[39m[31m[1
-m^[22m[39m[31m[1m^
-[22m[39m[31m[1m^[22
-m[39m[31m[1m^[22m[
-39m[31m[1m^[22m[39m
-[31m[1m^[22m[39m[3
-1m[1m^[22m[39m[31m
-[1m^[22m[39m[31m[1m
-^[22m[39m[31m[1m^[
-22m[39m[31m[1m^[22m
-[39m[31m[1m^[22m[3
-9m[31m[1m^[22m[39m
-[31m[1m^[22m[39m[31
-m[1m^[22m[39m[31m[
-1m^[22m[39m[31m[1m^
-[22m[39m[31m[1m^[2
-2m[39m[31m[1m^[22m
-[39m[31m[1m^[22m[39
-m[31m[1m^[22m[39m[
-31m[1m^[22m[39m[31m
-[1m^[22m[39m[31m[1
-m^[22m[39m[31m[1m^
-[22m[39m
- [90m 2 |[39m 
-[36mimport[39m { 
-authConfig } 
-[36mfrom[39m [32m'./
-lib/auth.config'[39m[
-33m;[39m
- [90m 3 |[39m
- [90m 4 |[39m 
-[36mexport[39m 
-[36mdefault[39m [33m
-NextAuth[39m(authConfi
-g)[33m.[39mauth[33m;
-[39m[0m
+Route (app)
+Ôöî Ôùï /
+Ôö£ Ôùï /_not-found
+Ôö£ ãÆ /api/auth/[...nextauth]
+Ôö£ ãÆ /api/contact
+Ôö£ ãÆ /api/events
+Ôö£ ãÆ /api/members
+Ôö£ ãÆ /api/migrate
+Ôöö ãÆ /api/recruit
 
 
+Ôùï  (Static)   prerendered as static content
+ãÆ  (Dynamic)  server-rendered on demand
 
-https://nextjs.org/docs
-/messages/module-not-fo
-und
-
-
-    at <unknown> 
-(./middleware.ts:1:1)
-    at <unknown> (https
-://nextjs.org/docs/mess
-ages/module-not-found)
