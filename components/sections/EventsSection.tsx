@@ -189,7 +189,7 @@ export function EventsSection() {
                                     )}
                                 </div>
                                 <div className="p-3 md:p-5">
-                                    <h3 className="font-bold text-xs md:text-xl text-black group-hover:text-blue-600 transition-colors duration-300 mb-1.5 md:mb-3">
+                                    <h3 className="font-bold text-xs md:text-xl text-black group-hover:text-blue-600 transition-colors duration-300 mb-1.5 md:mb-3 line-clamp-2 min-h-[32px] md:min-h-[56px]">
                                         {event.title}
                                     </h3>
                                     <div className="space-y-1.5">
@@ -202,7 +202,7 @@ export function EventsSection() {
                                             <span>{event.location}</span>
                                         </div>
                                     </div>
-                                    <p className="text-[8px] md:text-sm text-slate-500 mt-2 line-clamp-2 leading-tight">
+                                    <p className="text-[8px] md:text-sm text-slate-500 mt-2 line-clamp-2 leading-tight min-h-[24px] md:min-h-[40px]">
                                         {event.description}
                                     </p>
                                 </div>
@@ -384,7 +384,7 @@ export function EventsSection() {
                             </button>
                         </div>
                         <div className="flex-1 overflow-y-auto px-4 pb-20 custom-scrollbar">
-                            <div className="container mx-auto grid grid-cols-2 gap-3 md:gap-6">
+                            <div className="container mx-auto grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
                                 {events.map((event, i) => (
                                     <motion.div
                                         key={event.id}
@@ -399,18 +399,30 @@ export function EventsSection() {
                                         className="glass-card rounded-xl overflow-hidden group cursor-pointer hover:border-blue-200 transition-all shadow-airy"
                                     >
                                         <div className="h-28 md:h-60 w-full overflow-hidden relative">
-                                            <img src={(event.image || "").split(',')[0].trim()} alt={event.title} className="w-full h-full object-cover" />
-                                            <span className="absolute top-2 left-2 text-[8px] md:text-sm font-bold text-blue-600 bg-white px-2 md:px-3 py-0.5 md:py-1 rounded-full shadow-sm uppercase tracking-widest">
-                                                {event.type}
-                                            </span>
+                                            <img src={(event.image || "").split(',')[0].trim()} alt={event.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                                            <div className="absolute top-4 left-4 flex gap-2">
+                                                <span className="text-xs font-bold text-blue-600 bg-white px-3 py-1 rounded-full shadow-sm">
+                                                    {event.type}
+                                                </span>
+                                            </div>
                                         </div>
                                         <div className="p-3 md:p-6">
-                                            <h3 className="font-bold text-xs md:text-xl text-black mb-1.5 group-hover:text-blue-600 transition-colors leading-tight">{event.title}</h3>
-                                            <div className="flex items-center text-[8px] md:text-sm text-slate-400 gap-1 mb-1">
-                                                <Calendar className="w-2.5 h-2.5 md:w-3.5 md:h-3.5" />
-                                                <span>{event.date}</span>
+                                            <h3 className="font-bold text-xs md:text-xl text-black group-hover:text-blue-600 transition-colors duration-300 mb-1.5 md:mb-3 line-clamp-2 min-h-[32px] md:min-h-[56px]">
+                                                {event.title}
+                                            </h3>
+                                            <div className="space-y-1.5">
+                                                <div className="flex items-center text-[8px] md:text-sm text-slate-400 gap-1 md:gap-1.5">
+                                                    <Calendar className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 text-blue-400" />
+                                                    <span>{event.date}</span>
+                                                </div>
+                                                <div className="flex items-center text-[8px] md:text-sm text-slate-400 gap-1 md:gap-1.5">
+                                                    <MapPin className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 text-blue-400" />
+                                                    <span>{event.location}</span>
+                                                </div>
                                             </div>
-                                            <p className="text-[8px] md:text-sm text-slate-500 line-clamp-2 leading-tight">{event.description}</p>
+                                            <p className="text-[8px] md:text-sm text-slate-500 mt-2 line-clamp-2 leading-tight min-h-[24px] md:min-h-[40px]">
+                                                {event.description}
+                                            </p>
                                         </div>
                                     </motion.div>
                                 ))}
