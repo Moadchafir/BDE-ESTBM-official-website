@@ -17,6 +17,7 @@ export function EventsSection() {
     const { data: session } = useSession();
     const isAdmin = (session?.user as any)?.role === "admin";
     const [events, setEvents] = useState<any[]>([]);
+    const [isScrolled, setIsScrolled] = useState(false);
 
     const fetchEvents = async () => {
         const res = await fetch("/api/events");
@@ -143,11 +144,21 @@ export function EventsSection() {
                         </>
                     )}
 
+                    {/* Smooth Left Fade Overlay */}
+                    <div className={`hidden md:block absolute top-0 bottom-8 left-0 w-16 bg-gradient-to-r from-white to-transparent z-20 pointer-events-none transition-opacity duration-700 ease-in-out ${isScrolled ? 'opacity-100' : 'opacity-0'}`} />
+
+                    {/* Right Fade Overlay */}
+                    <div className="hidden md:block absolute top-0 bottom-8 right-0 w-16 bg-gradient-to-l from-white to-transparent z-20 pointer-events-none" />
+
                     <div
                         ref={eventsScrollRef}
+                        onScroll={(e) => {
+                            const target = e.target as HTMLDivElement;
+                            setIsScrolled(target.scrollLeft > 20);
+                        }}
                         className={`
                         ${events.length >= 3
-                                ? "flex gap-6 overflow-x-auto pb-8 snap-x no-scrollbar -mx-4 px-4 mask-fade-edges scroll-smooth"
+                                ? "flex gap-6 overflow-x-auto pb-8 snap-x no-scrollbar scroll-smooth relative"
                                 : "grid grid-cols-1 md:grid-cols-3 gap-6"
                             }
                     `}>
