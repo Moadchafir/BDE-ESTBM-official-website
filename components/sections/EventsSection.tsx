@@ -145,10 +145,10 @@ export function EventsSection() {
                     )}
 
                     {/* Smooth Left Fade Overlay */}
-                    <div className={`hidden md:block absolute top-0 bottom-8 left-0 w-16 bg-gradient-to-r from-white to-transparent z-20 pointer-events-none transition-opacity duration-700 ease-in-out ${isScrolled ? 'opacity-100' : 'opacity-0'}`} />
+                    <div className={`absolute top-0 bottom-8 left-0 w-8 md:w-16 bg-gradient-to-r from-white to-transparent z-20 pointer-events-none transition-opacity duration-700 ease-in-out ${isScrolled ? 'opacity-100' : 'opacity-0'}`} />
 
                     {/* Right Fade Overlay */}
-                    <div className="hidden md:block absolute top-0 bottom-8 right-0 w-16 bg-gradient-to-l from-white to-transparent z-20 pointer-events-none" />
+                    <div className="absolute top-0 bottom-8 right-0 w-8 md:w-16 bg-gradient-to-l from-white to-transparent z-20 pointer-events-none" />
 
                     <div
                         ref={eventsScrollRef}
@@ -213,7 +213,7 @@ export function EventsSection() {
                                             <span>{event.location}</span>
                                         </div>
                                     </div>
-                                    <p className="text-[8px] md:text-sm text-slate-500 mt-2 line-clamp-2 leading-tight min-h-[24px] md:min-h-[40px]">
+                                    <p className="text-[8px] md:text-sm text-slate-500 mt-2 line-clamp-2 text-ellipsis overflow-hidden break-words leading-tight min-h-[20px] md:min-h-[40px]">
                                         {event.description}
                                     </p>
                                 </div>
@@ -431,7 +431,7 @@ export function EventsSection() {
                                                     <span>{event.location}</span>
                                                 </div>
                                             </div>
-                                            <p className="text-[8px] md:text-sm text-slate-500 mt-2 line-clamp-2 leading-tight min-h-[24px] md:min-h-[40px]">
+                                            <p className="text-[8px] md:text-sm text-slate-500 mt-2 line-clamp-2 text-ellipsis overflow-hidden break-words leading-tight min-h-[20px] md:min-h-[40px]">
                                                 {event.description}
                                             </p>
                                         </div>
