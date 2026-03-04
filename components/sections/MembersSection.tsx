@@ -56,7 +56,7 @@ export function MembersSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.4, delay: i * 0.1 }}
-                            className="glass-card rounded-xl p-3 md:pt-10 md:px-8 md:pb-4 group cursor-pointer hover:-translate-y-1 transition-all duration-300 hover:border-blue-200 relative flex flex-col"
+                            className="glass-card rounded-xl pt-1.5 px-3 pb-0 md:pt-10 md:px-8 md:pb-4 group cursor-pointer hover:-translate-y-1 transition-all duration-300 hover:border-blue-200 relative flex flex-col"
                         >
                             {isAdmin && (
                                 <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-20">
@@ -69,11 +69,11 @@ export function MembersSection() {
                                     </button>
                                 </div>
                             )}
-                            <div className="flex flex-col items-center text-center flex-1">
+                            <div className="flex flex-col items-center text-center flex-1 pb-2 md:pb-0">
                                 <div className="w-14 h-14 md:w-20 md:h-20 rounded-full overflow-hidden mb-3 border-2 border-white/10 shadow-sm transition-all duration-300 group-hover:border-blue-500/40">
                                     <img src={member.src} alt={member.name} className="w-full h-full object-cover" />
                                 </div>
-                                <h3 className="font-bold text-[8px] md:text-lg text-black group-hover:text-blue-600 transition-colors duration-300 uppercase tracking-tight w-full px-0.5 leading-[1.1]">{member.name}</h3>
+                                <h3 className="font-bold text-[10px] md:text-lg text-black group-hover:text-blue-600 transition-colors duration-300 uppercase tracking-tight w-full px-0.5 leading-[1.1] mb-0.5 md:mb-0">{member.name}</h3>
                                 <div className="w-full flex items-center justify-center py-0.5">
                                     <span className="inline-block text-[6px] md:text-xs font-bold text-blue-400 bg-blue-500/10 px-1.5 md:px-4 py-0 md:py-1.5 rounded-full uppercase tracking-wider break-words max-w-full">
                                         {member.role}
@@ -86,7 +86,7 @@ export function MembersSection() {
                                 </div>
                             </div>
                             <div className="border-t border-slate-100 w-full mt-auto">
-                                <div className="h-8 md:h-[46px] flex items-center justify-center gap-3 md:gap-4">
+                                <div className="h-[28px] md:h-[46px] flex items-center justify-center gap-3 md:gap-4 md:py-0">
                                     <a href={member.socials?.ig || member.ig || "#"} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-[#E4405F] transition-colors duration-300">
                                         <Instagram className="w-3 h-3 md:w-5 md:h-5" />
                                     </a>
