@@ -13,7 +13,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             async authorize(credentials) {
                 // Simple hardcoded admin for demonstration
                 // In a real app, this would check a database
-                if (credentials?.username === "admin" && credentials?.password === "admin123") {
+                if (credentials?.username === "Khalidlwa3er" && credentials?.password === "Hh$6csf92F)?t4z6Xi%B{M7t@") {
                     return { id: "1", name: "Admin", role: "admin" }
                 }
                 return null
